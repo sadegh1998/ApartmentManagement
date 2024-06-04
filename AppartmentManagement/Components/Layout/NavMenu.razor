@@ -1,5 +1,27 @@
-﻿<MudNavMenu>
-    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">Home</MudNavLink>
-    <MudNavLink Href="counter" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.Add">Counter</MudNavLink>
-    <MudNavLink Href="weather" Match="NavLinkMatch.Prefix" Icon="@Icons.Material.Filled.List">Fetch data</MudNavLink>
-</MudNavMenu>
+﻿<MudPaper Width="250px" Class="d-inline-flex py-3" Elevation="0">
+    <MudNavMenu Class="mud-width-full" >
+        <MudText Typo="Typo.body2" Class="px-4 mud-text-secondary">منوی کاربری</MudText>
+        <MudDivider Class="my-2" />
+        <MudNavLink Href="/" Icon="@Icons.Material.Filled.Dashboard">داشبورد</MudNavLink>
+        <MudNavGroup Title="ساختمان" Icon="@Icons.Material.Filled.Settings">
+            <MudNavLink Href="/MyApartment" Icon="@Icons.Material.Filled.People" IconColor="Color.Success">ساختمان من</MudNavLink>
+            <MudNavLink Href="/ApartmentRules" Icon="@Icons.Material.Filled.Security" IconColor="Color.Info">قوانین ساختمان</MudNavLink>
+            <MudNavLink Href="/ApartmentLogs" Icon="@Icons.Material.Filled.Security" IconColor="Color.Info">سوابق ساختمان</MudNavLink>
+        </MudNavGroup>
+        <MudNavLink Href="/ApartmentNews" Icon="@Icons.Material.Filled.Storage">اخبار</MudNavLink>
+        <MudNavGroup Title="مالی" Icon="@Icons.Material.Filled.Settings">
+            <MudNavLink Href="/ApartmentLoan" Icon="@Icons.Material.Filled.People" IconColor="Color.Success">صندوق</MudNavLink>
+            <MudNavLink Href="/ApartmentReceipt" Icon="@Icons.Material.Filled.Security" IconColor="Color.Info">فیش ها</MudNavLink>
+            <MudNavLink Href="/ApartmentBills" Icon="@Icons.Material.Filled.Security" IconColor="Color.Info">قبوض</MudNavLink>
+            <MudNavLink Href="/ApartmentFinancialReport" Icon="@Icons.Material.Filled.Security" IconColor="Color.Info">گزارش مالی ساختمان</MudNavLink>
+        </MudNavGroup>
+        <MudNavLink Href="/ApartmentWallet" Icon="@Icons.Material.Filled.Receipt">کیف پول</MudNavLink>
+        <MudNavGroup Title="پشتیبانی" Icon="@Icons.Material.Filled.Settings">
+            <MudNavLink Href="/Questions" Icon="@Icons.Material.Filled.People" IconColor="Color.Success">سوالات متداول</MudNavLink>
+            <MudNavLink Href="/AboutUs" Icon="@Icons.Material.Filled.Security" IconColor="Color.Info">درباره ما</MudNavLink>
+            <MudNavLink Href="/Support" Icon="@Icons.Material.Filled.Security" IconColor="Color.Info">پشتیبانی</MudNavLink>
+            <MudNavLink Href="/Help" Icon="@Icons.Material.Filled.Security" IconColor="Color.Info">راهنما</MudNavLink>
+        </MudNavGroup>
+
+    </MudNavMenu>
+</MudPaper>
