@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingManagement.Configur
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingManagement.Infrastructure.EFCore", "BuildingManagement.Infrastructure.EFCore\BuildingManagement.Infrastructure.EFCore.csproj", "{5BA7AF9B-58BA-4F68-A8DF-2DA2D76D1998}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modirsa", "Modirsa", "{09A31D29-68C2-475E-97FE-A344108531C0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -52,6 +54,7 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
+		{277391FA-86A2-4A5B-96DA-066967AC9A35} = {09A31D29-68C2-475E-97FE-A344108531C0}
 		{E31B2023-FD53-4F54-ABC0-C1B8800F73D7} = {277391FA-86A2-4A5B-96DA-066967AC9A35}
 		{0CE4EB87-D706-48A4-8D0E-9A45D3C96FF2} = {277391FA-86A2-4A5B-96DA-066967AC9A35}
 		{67469874-B2B7-4663-AA8C-4ADF847B768A} = {277391FA-86A2-4A5B-96DA-066967AC9A35}
