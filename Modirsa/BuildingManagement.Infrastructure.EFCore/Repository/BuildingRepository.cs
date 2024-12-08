@@ -1,38 +1,16 @@
-﻿using BuildingManagement.Domain.BuildingAgg;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using _0_Framework.Infrastructure;
+using BuildingManagement.Domain.BuildingAgg;
 
 namespace BuildingManagement.Infrastructure.EFCore.Repository
 {
-    public class BuildingRepository : IBuildingRepository
+    public class BuildingRepository : RepositoryBase<Guid,Building>,IBuildingRepository
     {
-        public void Create(Building entity)
+        private readonly BuildingContext _context;
+
+        public BuildingRepository(BuildingContext context) : base(context) 
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public bool Exsits(Expression<Func<Building, bool>> expression)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Building Get(Guid key)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<Building> GetAll()
-        {
-            throw new NotImplementedException();
-        }
-
-        public void SaveChanges()
-        {
-            throw new NotImplementedException();
-        }
     }
 }
