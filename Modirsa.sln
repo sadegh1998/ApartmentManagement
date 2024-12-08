@@ -13,15 +13,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BM.Infrastructure", "BM.Inf
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modirsa", "Modirsa", "{09A31D29-68C2-475E-97FE-A344108531C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingManagement.Domain", "Modirsa\BuildingManagement.Domain\BuildingManagement.Domain.csproj", "{38F52AE6-745A-44FC-9AA5-8393610AC722}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildingManagement.Domain", "Modirsa\BuildingManagement.Domain\BuildingManagement.Domain.csproj", "{38F52AE6-745A-44FC-9AA5-8393610AC722}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingManagement.Application", "Modirsa\BuildingManagement.Application\BuildingManagement.Application.csproj", "{309DBAE1-B55E-444A-A8E0-6C899D49DAD1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildingManagement.Application", "Modirsa\BuildingManagement.Application\BuildingManagement.Application.csproj", "{309DBAE1-B55E-444A-A8E0-6C899D49DAD1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingManagement.Application.Contract", "Modirsa\BuildingManagement.Application.Contract\BuildingManagement.Application.Contract.csproj", "{1217532C-F2FF-4364-ACB8-DF468B0C4289}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildingManagement.Application.Contract", "Modirsa\BuildingManagement.Application.Contract\BuildingManagement.Application.Contract.csproj", "{1217532C-F2FF-4364-ACB8-DF468B0C4289}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingManagement.Configuration", "Modirsa\BuildingManagement.Configuration\BuildingManagement.Configuration.csproj", "{85299EDF-8DA2-46C5-849A-D8C4DF1B3309}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildingManagement.Configuration", "Modirsa\BuildingManagement.Configuration\BuildingManagement.Configuration.csproj", "{85299EDF-8DA2-46C5-849A-D8C4DF1B3309}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingManagement.Infrastructure.EFCore", "Modirsa\BuildingManagement.Infrastructure.EFCore\BuildingManagement.Infrastructure.EFCore.csproj", "{26E55ABA-D8AF-4E6D-A047-3FDDE1BE6CCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildingManagement.Infrastructure.EFCore", "Modirsa\BuildingManagement.Infrastructure.EFCore\BuildingManagement.Infrastructure.EFCore.csproj", "{26E55ABA-D8AF-4E6D-A047-3FDDE1BE6CCB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0_Framework", "Modirsa\0_Framework\0_Framework.csproj", "{3807B7FB-71F4-49C9-8FD5-087F4CA93E49}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +51,10 @@ Global
 		{26E55ABA-D8AF-4E6D-A047-3FDDE1BE6CCB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26E55ABA-D8AF-4E6D-A047-3FDDE1BE6CCB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26E55ABA-D8AF-4E6D-A047-3FDDE1BE6CCB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3807B7FB-71F4-49C9-8FD5-087F4CA93E49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3807B7FB-71F4-49C9-8FD5-087F4CA93E49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3807B7FB-71F4-49C9-8FD5-087F4CA93E49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3807B7FB-71F4-49C9-8FD5-087F4CA93E49}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -63,6 +69,7 @@ Global
 		{1217532C-F2FF-4364-ACB8-DF468B0C4289} = {0CE4EB87-D706-48A4-8D0E-9A45D3C96FF2}
 		{85299EDF-8DA2-46C5-849A-D8C4DF1B3309} = {67469874-B2B7-4663-AA8C-4ADF847B768A}
 		{26E55ABA-D8AF-4E6D-A047-3FDDE1BE6CCB} = {67469874-B2B7-4663-AA8C-4ADF847B768A}
+		{3807B7FB-71F4-49C9-8FD5-087F4CA93E49} = {09A31D29-68C2-475E-97FE-A344108531C0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8AD4E0B2-F358-4C3D-BC59-44590B799898}
