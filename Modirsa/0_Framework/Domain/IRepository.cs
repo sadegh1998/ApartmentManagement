@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq.Expressions;
 
 namespace _0_Framework.Domain
 {
     public interface IRepository <TKey,T> where T : class
     {
-        void Create(T entity);
-        T Get(TKey key);
-        List<T> GetAll();
-        bool Exsits(Expression<Func<T,bool>> expression);
-        void SaveChanges();
+        Task Create(T entity);
+        Task<T> Get(TKey key);
+        Task<List<T>> GetAll();
+        Task<bool> Exsits(Expression<Func<T,bool>> expression);
+        Task SaveChanges();
     }
 }

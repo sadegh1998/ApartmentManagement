@@ -8,8 +8,8 @@ namespace _0_Framework.Domain
 {
     public class EntityBase
     {
-        public Guid Id { get; private set; }
-        public DateTime CreationDate { get; private set; }
+        public Guid Id { get;  set; }
+        public DateTime CreationDate { get;  set; }
 
         public EntityBase()
         {
