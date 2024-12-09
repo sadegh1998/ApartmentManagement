@@ -1,4 +1,5 @@
 ﻿using BuildingManagement.Domain.BuildingAgg;
+using BuildingManagement.Domain.UnitAgg;
 using BuildingManagement.Infrastructure.EFCore.Mapping;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,6 +13,7 @@ namespace BuildingManagement.Infrastructure.EFCore
     public class BuildingContext : DbContext
     {
         public DbSet<Building> Buildings{ get; set; }
+        public DbSet<Unit> Units{ get; set; }
         public BuildingContext(DbContextOptions<BuildingContext> options) : base(options)
         {
                 

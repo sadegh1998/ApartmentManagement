@@ -18,6 +18,7 @@ namespace BuildingManagement.Infrastructure.EFCore.Mapping
             builder.Property(x => x.Image).HasMaxLength(500).IsRequired();
             builder.Property(x => x.Image).HasMaxLength(500).IsRequired(false);
 
+            builder.HasMany(x => x.Units).WithOne(x => x.Building).HasForeignKey(x => x.BuildingId);
         }
     }
 }

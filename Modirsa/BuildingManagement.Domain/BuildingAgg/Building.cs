@@ -1,4 +1,5 @@
 ﻿using _0_Framework.Domain;
+using BuildingManagement.Domain.UnitAgg;
 
 namespace BuildingManagement.Domain.BuildingAgg
 {
@@ -10,6 +11,7 @@ namespace BuildingManagement.Domain.BuildingAgg
         public int BuildingUnitsNo { get; private set; }
         public decimal FundBalance { get; private set; }
         public string Image { get; private set; }
+        public List<Unit> Units { get; private set; }
 
         public Building(string name, string address, int floors, int buildingUnitsNo, decimal fundBalance, string image)
         {

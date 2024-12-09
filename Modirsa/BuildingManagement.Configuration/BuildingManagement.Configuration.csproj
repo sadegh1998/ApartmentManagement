@@ -11,6 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BuildingManagement.Application.Contract\BuildingManagement.Application.Contract.csproj" />
+    <ProjectReference Include="..\BuildingManagement.Application\BuildingManagement.Application.csproj" />
     <ProjectReference Include="..\BuildingManagement.Domain\BuildingManagement.Domain.csproj" />
     <ProjectReference Include="..\BuildingManagement.Infrastructure.EFCore\BuildingManagement.Infrastructure.EFCore.csproj" />
   </ItemGroup>
