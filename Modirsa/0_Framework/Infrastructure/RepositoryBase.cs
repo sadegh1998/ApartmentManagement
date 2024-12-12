@@ -13,27 +13,27 @@ namespace _0_Framework.Infrastructure
             _context = context;
         }
 
-        public async Task Create(T entity)
+        public async Task CreateAsync(T entity)
         {
             await _context.AddAsync(entity);
         }
 
-        public async Task<bool> Exsits(Expression<Func<T, bool>> expression)
+        public async Task<bool> ExsitsAsync(Expression<Func<T, bool>> expression)
         {
             return await _context.Set<T>().AnyAsync(expression);
         }
 
-        public async Task<T> Get(TKey key)
+        public async Task<T> GetAsync(TKey key)
         {
             return await _context.Set<T>().FindAsync(key);
         }
 
-        public async Task<List<T>> GetAll()
+        public async Task<List<T>> GetAllAsync()
         {
             return await _context.Set<T>().ToListAsync();
         }
 
-        public async Task SaveChanges()
+        public async Task SaveChangesAsync()
         {
            await _context.SaveChangesAsync();
         }

@@ -23,7 +23,25 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildingManagement.Configur
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BuildingManagement.Infrastructure.EFCore", "Modirsa\BuildingManagement.Infrastructure.EFCore\BuildingManagement.Infrastructure.EFCore.csproj", "{26E55ABA-D8AF-4E6D-A047-3FDDE1BE6CCB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0_Framework", "Modirsa\0_Framework\0_Framework.csproj", "{3807B7FB-71F4-49C9-8FD5-087F4CA93E49}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "0_Framework", "Modirsa\0_Framework\0_Framework.csproj", "{3807B7FB-71F4-49C9-8FD5-087F4CA93E49}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExpenseManagement", "ExpenseManagement", "{5EB6BD1B-222C-409D-AA3B-5471178D7D1A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EM.Domain", "EM.Domain", "{23FCE99A-1D2F-48FF-972D-7E9F40BC0545}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagement.Domain", "Modirsa\ExpenseManagement\EM.Domain\ExpenseManagement.Domain\ExpenseManagement.Domain.csproj", "{8BC8BDCF-2D89-47D5-A976-2B05900ECF39}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EM.Infrastructure", "EM.Infrastructure", "{43918328-082E-4370-A634-D7FE555AA31F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagement.Infrastructure.EfCore", "Modirsa\ExpenseManagement\EM.Infrastructure\ExpenseManagement.Infrastructure.EfCore\ExpenseManagement.Infrastructure.EfCore.csproj", "{CDE160C3-B80A-44DA-AFE8-86E4E5D44C32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagement.Configuration", "Modirsa\ExpenseManagement\EM.Infrastructure\ExpenseManagement.Configuration\ExpenseManagement.Configuration.csproj", "{D5D2B308-8942-4BEF-BD62-C8941E2C5B76}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EM.Application", "EM.Application", "{09A05B82-5573-46AD-896A-905D4B907AFA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagement.Application.Contract", "Modirsa\ExpenseManagement\EM.Application\ExpenseManagement.Application.Contract\ExpenseManagement.Application.Contract.csproj", "{6E0104AC-3156-4DA3-B1F4-1FEF70ABC0B7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagement.Application", "Modirsa\ExpenseManagement\EM.Application\ExpenseManagement.Application\ExpenseManagement.Application.csproj", "{07310B00-242B-4618-9F10-B77C02833478}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -55,6 +73,26 @@ Global
 		{3807B7FB-71F4-49C9-8FD5-087F4CA93E49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3807B7FB-71F4-49C9-8FD5-087F4CA93E49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3807B7FB-71F4-49C9-8FD5-087F4CA93E49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8BC8BDCF-2D89-47D5-A976-2B05900ECF39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BC8BDCF-2D89-47D5-A976-2B05900ECF39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BC8BDCF-2D89-47D5-A976-2B05900ECF39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BC8BDCF-2D89-47D5-A976-2B05900ECF39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDE160C3-B80A-44DA-AFE8-86E4E5D44C32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDE160C3-B80A-44DA-AFE8-86E4E5D44C32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDE160C3-B80A-44DA-AFE8-86E4E5D44C32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDE160C3-B80A-44DA-AFE8-86E4E5D44C32}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D5D2B308-8942-4BEF-BD62-C8941E2C5B76}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5D2B308-8942-4BEF-BD62-C8941E2C5B76}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5D2B308-8942-4BEF-BD62-C8941E2C5B76}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5D2B308-8942-4BEF-BD62-C8941E2C5B76}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E0104AC-3156-4DA3-B1F4-1FEF70ABC0B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E0104AC-3156-4DA3-B1F4-1FEF70ABC0B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E0104AC-3156-4DA3-B1F4-1FEF70ABC0B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E0104AC-3156-4DA3-B1F4-1FEF70ABC0B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07310B00-242B-4618-9F10-B77C02833478}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07310B00-242B-4618-9F10-B77C02833478}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07310B00-242B-4618-9F10-B77C02833478}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07310B00-242B-4618-9F10-B77C02833478}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -70,6 +108,15 @@ Global
 		{85299EDF-8DA2-46C5-849A-D8C4DF1B3309} = {67469874-B2B7-4663-AA8C-4ADF847B768A}
 		{26E55ABA-D8AF-4E6D-A047-3FDDE1BE6CCB} = {67469874-B2B7-4663-AA8C-4ADF847B768A}
 		{3807B7FB-71F4-49C9-8FD5-087F4CA93E49} = {09A31D29-68C2-475E-97FE-A344108531C0}
+		{5EB6BD1B-222C-409D-AA3B-5471178D7D1A} = {09A31D29-68C2-475E-97FE-A344108531C0}
+		{23FCE99A-1D2F-48FF-972D-7E9F40BC0545} = {5EB6BD1B-222C-409D-AA3B-5471178D7D1A}
+		{8BC8BDCF-2D89-47D5-A976-2B05900ECF39} = {23FCE99A-1D2F-48FF-972D-7E9F40BC0545}
+		{43918328-082E-4370-A634-D7FE555AA31F} = {5EB6BD1B-222C-409D-AA3B-5471178D7D1A}
+		{CDE160C3-B80A-44DA-AFE8-86E4E5D44C32} = {43918328-082E-4370-A634-D7FE555AA31F}
+		{D5D2B308-8942-4BEF-BD62-C8941E2C5B76} = {43918328-082E-4370-A634-D7FE555AA31F}
+		{09A05B82-5573-46AD-896A-905D4B907AFA} = {5EB6BD1B-222C-409D-AA3B-5471178D7D1A}
+		{6E0104AC-3156-4DA3-B1F4-1FEF70ABC0B7} = {09A05B82-5573-46AD-896A-905D4B907AFA}
+		{07310B00-242B-4618-9F10-B77C02833478} = {09A05B82-5573-46AD-896A-905D4B907AFA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8AD4E0B2-F358-4C3D-BC59-44590B799898}

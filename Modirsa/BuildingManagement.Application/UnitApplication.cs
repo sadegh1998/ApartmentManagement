@@ -21,38 +21,38 @@ namespace BuildingManagement.Application
         public async Task<OperationResult> CreateAsync(CreateUnit command)
         {
             var operation = new OperationResult();
-            if (await _unitRepository.Exsits(x => x.Name == command.Name && x.BuildingId == command.BuildingId))
+            if (await _unitRepository.ExsitsAsync(x => x.Name == command.Name && x.BuildingId == command.BuildingId))
             {
                 return operation.Failed(ApplicationMessages.Duplicate);
             }
 
             var unit = new Unit(command.Name, command.UnitNumber, command.OwnerTenanStatus, command.NumberOfFamilyMembers, command.BuildingId);
-            await _unitRepository.Create(unit);
-            await _unitRepository.SaveChanges();
+            await _unitRepository.CreateAsync(unit);
+            await _unitRepository.SaveChangesAsync();
             return operation.Success();
         }
 
         public async Task<OperationResult> EditAsync(EditUnit command)
         {
             var operation = new OperationResult();
-            var unit =await _unitRepository.Get(command.Id);
+            var unit =await _unitRepository.GetAsync(command.Id);
             if(unit == null)
             {
                 return operation.Failed(ApplicationMessages.NotFound);
             }
-            if (await _unitRepository.Exsits(x => x.Name == command.Name && x.BuildingId == command.BuildingId && x.Id != unit.Id))
+            if (await _unitRepository.ExsitsAsync(x => x.Name == command.Name && x.BuildingId == command.BuildingId && x.Id != unit.Id))
             {
                 return operation.Failed(ApplicationMessages.Duplicate);
             }
 
             unit.Edit(command.Name, command.UnitNumber, command.OwnerTenanStatus, command.NumberOfFamilyMembers, command.BuildingId);
-            await _unitRepository.SaveChanges();
+            await _unitRepository.SaveChangesAsync();
             return operation.Success();
         }
 
         public async Task<List<UnitViewModel>> GetAllUnit()
         {
-            var unit = await _unitRepository.GetAll();
+            var unit = await _unitRepository.GetAllAsync();
             return unit.Select(x => new UnitViewModel {
             Name = x.Name,
             UnitNumber= x.UnitNumber,
@@ -64,7 +64,7 @@ namespace BuildingManagement.Application
 
         public async Task<UnitViewModel> GetUnitBy(Guid id)
         {
-            var unit = await _unitRepository.Get(id);
+            var unit = await _unitRepository.GetAsync(id);
             return new UnitViewModel { 
             Name = unit.Name,
             BuildingName = unit.Building.Name,
@@ -76,7 +76,7 @@ namespace BuildingManagement.Application
 
         public async Task<List<UnitViewModel>> Search(UnitSearchModel searchModel)
         {
-            var result = await _unitRepository.GetAll();
+            var result = await _unitRepository.GetAllAsync();
             if (!string.IsNullOrWhiteSpace(searchModel.Name))
             {
                 result = result.Where(x => x.Name.Contains(searchModel.Name)).ToList();
