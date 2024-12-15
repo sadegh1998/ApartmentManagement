@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\0_Framework\0_Framework.csproj" />
+    <ProjectReference Include="..\..\EM.Application\ExpenseManagement.Application.Contract\ExpenseManagement.Application.Contract.csproj" />
   </ItemGroup>
 
 </Project>

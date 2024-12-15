@@ -21,6 +21,8 @@ namespace ExpenseManagement.Infrastructure.EfCore.Mapping
             builder.Property(e => e.Amount).IsRequired();
             builder.Property(e => e.DateIncurred).IsRequired();
 
+            builder.HasMany(e => e.ExpenseUnits).WithOne(e => e.Expenses).HasForeignKey(e => e.ExpenseId);
+
         }
     }
 }

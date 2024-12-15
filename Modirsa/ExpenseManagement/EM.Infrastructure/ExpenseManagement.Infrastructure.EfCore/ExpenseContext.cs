@@ -1,4 +1,5 @@
 ﻿using ExpenseManagement.Domain.ExpenseAgg;
+using ExpenseManagement.Domain.ExpenseUnitAgg;
 using ExpenseManagement.Infrastructure.EfCore.Mapping;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -12,6 +13,8 @@ namespace ExpenseManagement.Infrastructure.EfCore
     public class ExpenseContext : DbContext
     {
         public DbSet<Expenses> Expenses { get; set; }
+        public DbSet<ExpenseUnits> ExpenseUnits { get; set; }
+
         public ExpenseContext(DbContextOptions<ExpenseContext> options) : base(options) 
         {
             
