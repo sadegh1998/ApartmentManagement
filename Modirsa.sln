@@ -29,19 +29,37 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExpenseManagement", "Expens
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EM.Domain", "EM.Domain", "{23FCE99A-1D2F-48FF-972D-7E9F40BC0545}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagement.Domain", "Modirsa\ExpenseManagement\EM.Domain\ExpenseManagement.Domain\ExpenseManagement.Domain.csproj", "{8BC8BDCF-2D89-47D5-A976-2B05900ECF39}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseManagement.Domain", "Modirsa\ExpenseManagement\EM.Domain\ExpenseManagement.Domain\ExpenseManagement.Domain.csproj", "{8BC8BDCF-2D89-47D5-A976-2B05900ECF39}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EM.Infrastructure", "EM.Infrastructure", "{43918328-082E-4370-A634-D7FE555AA31F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagement.Infrastructure.EfCore", "Modirsa\ExpenseManagement\EM.Infrastructure\ExpenseManagement.Infrastructure.EfCore\ExpenseManagement.Infrastructure.EfCore.csproj", "{CDE160C3-B80A-44DA-AFE8-86E4E5D44C32}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseManagement.Infrastructure.EfCore", "Modirsa\ExpenseManagement\EM.Infrastructure\ExpenseManagement.Infrastructure.EfCore\ExpenseManagement.Infrastructure.EfCore.csproj", "{CDE160C3-B80A-44DA-AFE8-86E4E5D44C32}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagement.Configuration", "Modirsa\ExpenseManagement\EM.Infrastructure\ExpenseManagement.Configuration\ExpenseManagement.Configuration.csproj", "{D5D2B308-8942-4BEF-BD62-C8941E2C5B76}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseManagement.Configuration", "Modirsa\ExpenseManagement\EM.Infrastructure\ExpenseManagement.Configuration\ExpenseManagement.Configuration.csproj", "{D5D2B308-8942-4BEF-BD62-C8941E2C5B76}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EM.Application", "EM.Application", "{09A05B82-5573-46AD-896A-905D4B907AFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagement.Application.Contract", "Modirsa\ExpenseManagement\EM.Application\ExpenseManagement.Application.Contract\ExpenseManagement.Application.Contract.csproj", "{6E0104AC-3156-4DA3-B1F4-1FEF70ABC0B7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseManagement.Application.Contract", "Modirsa\ExpenseManagement\EM.Application\ExpenseManagement.Application.Contract\ExpenseManagement.Application.Contract.csproj", "{6E0104AC-3156-4DA3-B1F4-1FEF70ABC0B7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExpenseManagement.Application", "Modirsa\ExpenseManagement\EM.Application\ExpenseManagement.Application\ExpenseManagement.Application.csproj", "{07310B00-242B-4618-9F10-B77C02833478}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExpenseManagement.Application", "Modirsa\ExpenseManagement\EM.Application\ExpenseManagement.Application\ExpenseManagement.Application.csproj", "{07310B00-242B-4618-9F10-B77C02833478}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AccountManagement", "AccountManagement", "{16D4A5B2-C8C2-4EF5-9624-126F9867354B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AM.Domain", "AM.Domain", "{E387DB1B-D471-4E80-A10A-C8EF4A2C22E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AM.Infrastructure", "AM.Infrastructure", "{A21B84BC-3FA6-475C-942D-3AE6C3700187}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AM.Application", "AM.Application", "{B4CA2B98-02F8-41EA-8284-303A8431CDEE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement.Domain", "Modirsa\AccountManagement\AM.Domain\AccountManagement.Domain\AccountManagement.Domain.csproj", "{C714B5A9-C111-4A48-8A30-4FD8786B5B75}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement.Configuration", "Modirsa\AccountManagement\AM.Infrastructure\AccountManagement.Configuration\AccountManagement.Configuration.csproj", "{798CC435-3ABA-419B-86F5-5AB08D24D307}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement.Infrastructure.EFCore", "Modirsa\AccountManagement\AM.Infrastructure\AccountManagement.Infrastructure.EFCore\AccountManagement.Infrastructure.EFCore.csproj", "{80F9AEB5-40A5-4C4C-88C4-6DE7917134A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement.Application", "Modirsa\AccountManagement\AM.Application\AccountManagement.Application\AccountManagement.Application.csproj", "{683E2F1D-2A0C-43FD-981D-8105A3408527}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement.Application.Contract", "Modirsa\AccountManagement\AM.Application\AccountManagement.Application.Contract\AccountManagement.Application.Contract.csproj", "{52D893DB-AF06-49BF-BBFE-939F9079EC0B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -93,6 +111,26 @@ Global
 		{07310B00-242B-4618-9F10-B77C02833478}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{07310B00-242B-4618-9F10-B77C02833478}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{07310B00-242B-4618-9F10-B77C02833478}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C714B5A9-C111-4A48-8A30-4FD8786B5B75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C714B5A9-C111-4A48-8A30-4FD8786B5B75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C714B5A9-C111-4A48-8A30-4FD8786B5B75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C714B5A9-C111-4A48-8A30-4FD8786B5B75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{798CC435-3ABA-419B-86F5-5AB08D24D307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{798CC435-3ABA-419B-86F5-5AB08D24D307}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{798CC435-3ABA-419B-86F5-5AB08D24D307}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{798CC435-3ABA-419B-86F5-5AB08D24D307}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80F9AEB5-40A5-4C4C-88C4-6DE7917134A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80F9AEB5-40A5-4C4C-88C4-6DE7917134A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80F9AEB5-40A5-4C4C-88C4-6DE7917134A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80F9AEB5-40A5-4C4C-88C4-6DE7917134A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{683E2F1D-2A0C-43FD-981D-8105A3408527}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{683E2F1D-2A0C-43FD-981D-8105A3408527}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{683E2F1D-2A0C-43FD-981D-8105A3408527}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{683E2F1D-2A0C-43FD-981D-8105A3408527}.Release|Any CPU.Build.0 = Release|Any CPU
+		{52D893DB-AF06-49BF-BBFE-939F9079EC0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52D893DB-AF06-49BF-BBFE-939F9079EC0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52D893DB-AF06-49BF-BBFE-939F9079EC0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52D893DB-AF06-49BF-BBFE-939F9079EC0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -117,6 +155,15 @@ Global
 		{09A05B82-5573-46AD-896A-905D4B907AFA} = {5EB6BD1B-222C-409D-AA3B-5471178D7D1A}
 		{6E0104AC-3156-4DA3-B1F4-1FEF70ABC0B7} = {09A05B82-5573-46AD-896A-905D4B907AFA}
 		{07310B00-242B-4618-9F10-B77C02833478} = {09A05B82-5573-46AD-896A-905D4B907AFA}
+		{16D4A5B2-C8C2-4EF5-9624-126F9867354B} = {09A31D29-68C2-475E-97FE-A344108531C0}
+		{E387DB1B-D471-4E80-A10A-C8EF4A2C22E8} = {16D4A5B2-C8C2-4EF5-9624-126F9867354B}
+		{A21B84BC-3FA6-475C-942D-3AE6C3700187} = {16D4A5B2-C8C2-4EF5-9624-126F9867354B}
+		{B4CA2B98-02F8-41EA-8284-303A8431CDEE} = {16D4A5B2-C8C2-4EF5-9624-126F9867354B}
+		{C714B5A9-C111-4A48-8A30-4FD8786B5B75} = {E387DB1B-D471-4E80-A10A-C8EF4A2C22E8}
+		{798CC435-3ABA-419B-86F5-5AB08D24D307} = {A21B84BC-3FA6-475C-942D-3AE6C3700187}
+		{80F9AEB5-40A5-4C4C-88C4-6DE7917134A7} = {A21B84BC-3FA6-475C-942D-3AE6C3700187}
+		{683E2F1D-2A0C-43FD-981D-8105A3408527} = {B4CA2B98-02F8-41EA-8284-303A8431CDEE}
+		{52D893DB-AF06-49BF-BBFE-939F9079EC0B} = {B4CA2B98-02F8-41EA-8284-303A8431CDEE}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8AD4E0B2-F358-4C3D-BC59-44590B799898}
