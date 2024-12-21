@@ -51,15 +51,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AM.Infrastructure", "AM.Inf
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AM.Application", "AM.Application", "{B4CA2B98-02F8-41EA-8284-303A8431CDEE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement.Domain", "Modirsa\AccountManagement\AM.Domain\AccountManagement.Domain\AccountManagement.Domain.csproj", "{C714B5A9-C111-4A48-8A30-4FD8786B5B75}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountManagement.Domain", "Modirsa\AccountManagement\AM.Domain\AccountManagement.Domain\AccountManagement.Domain.csproj", "{C714B5A9-C111-4A48-8A30-4FD8786B5B75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement.Configuration", "Modirsa\AccountManagement\AM.Infrastructure\AccountManagement.Configuration\AccountManagement.Configuration.csproj", "{798CC435-3ABA-419B-86F5-5AB08D24D307}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountManagement.Configuration", "Modirsa\AccountManagement\AM.Infrastructure\AccountManagement.Configuration\AccountManagement.Configuration.csproj", "{798CC435-3ABA-419B-86F5-5AB08D24D307}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement.Infrastructure.EFCore", "Modirsa\AccountManagement\AM.Infrastructure\AccountManagement.Infrastructure.EFCore\AccountManagement.Infrastructure.EFCore.csproj", "{80F9AEB5-40A5-4C4C-88C4-6DE7917134A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountManagement.Infrastructure.EFCore", "Modirsa\AccountManagement\AM.Infrastructure\AccountManagement.Infrastructure.EFCore\AccountManagement.Infrastructure.EFCore.csproj", "{80F9AEB5-40A5-4C4C-88C4-6DE7917134A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement.Application", "Modirsa\AccountManagement\AM.Application\AccountManagement.Application\AccountManagement.Application.csproj", "{683E2F1D-2A0C-43FD-981D-8105A3408527}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountManagement.Application", "Modirsa\AccountManagement\AM.Application\AccountManagement.Application\AccountManagement.Application.csproj", "{683E2F1D-2A0C-43FD-981D-8105A3408527}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagement.Application.Contract", "Modirsa\AccountManagement\AM.Application\AccountManagement.Application.Contract\AccountManagement.Application.Contract.csproj", "{52D893DB-AF06-49BF-BBFE-939F9079EC0B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AccountManagement.Application.Contract", "Modirsa\AccountManagement\AM.Application\AccountManagement.Application.Contract\AccountManagement.Application.Contract.csproj", "{52D893DB-AF06-49BF-BBFE-939F9079EC0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modirsa.Presentation", "Modirsa.Presentation", "{89CAD88F-15FB-4866-A821-B3BE4D7C4A52}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -164,6 +166,7 @@ Global
 		{80F9AEB5-40A5-4C4C-88C4-6DE7917134A7} = {A21B84BC-3FA6-475C-942D-3AE6C3700187}
 		{683E2F1D-2A0C-43FD-981D-8105A3408527} = {B4CA2B98-02F8-41EA-8284-303A8431CDEE}
 		{52D893DB-AF06-49BF-BBFE-939F9079EC0B} = {B4CA2B98-02F8-41EA-8284-303A8431CDEE}
+		{89CAD88F-15FB-4866-A821-B3BE4D7C4A52} = {09A31D29-68C2-475E-97FE-A344108531C0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8AD4E0B2-F358-4C3D-BC59-44590B799898}
