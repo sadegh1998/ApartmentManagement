@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.Logging;
 using Modirsa.Mobile.Services;
 using Modirsa.Mobile.Shared.Services;
+using MudBlazor.Services;
 
 namespace Modirsa.Mobile
 {
@@ -20,6 +21,7 @@ namespace Modirsa.Mobile
             builder.Services.AddSingleton<IFormFactor, FormFactor>();
 
             builder.Services.AddMauiBlazorWebView();
+            builder.Services.AddMudServices();
 
 #if DEBUG
             builder.Services.AddBlazorWebViewDeveloperTools();

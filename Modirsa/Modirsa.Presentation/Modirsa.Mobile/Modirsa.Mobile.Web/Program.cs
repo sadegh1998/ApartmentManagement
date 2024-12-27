@@ -5,6 +5,7 @@ using ExpenseManagement.Configuration;
 using Modirsa.Mobile.Shared.Services;
 using Modirsa.Mobile.Web.Components;
 using Modirsa.Mobile.Web.Services;
+using MudBlazor.Services;
 using ServiceHost;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
@@ -22,6 +23,8 @@ AccountBootstrapper.Configuration(builder.Services, connectionStrings);
 BuildingBootstrapper.Configuration(builder.Services, connectionStrings);
 ExpenseBootstrapper.Configuration(builder.Services, connectionStrings);
 builder.Services.AddSingleton(HtmlEncoder.Create(UnicodeRanges.BasicLatin, UnicodeRanges.Arabic));
+builder.Services.AddMudServices();
+
 //builder.Services.AddSingleton<HmacTokenHelper>();
 builder.Services.AddTransient<IFileUploader, FileUploader>();
 builder.Services.AddTransient<IAuthHelper, AuthHelper>();
