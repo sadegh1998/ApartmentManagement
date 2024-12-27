@@ -11,7 +11,7 @@ namespace BuildingManagement.Configuration
 {
     public class BuildingBootstrapper
     {
-        public void Configuration(IServiceCollection services,string connectionString)
+        public static void Configuration(IServiceCollection services,string? connectionString)
         {
             services.AddTransient<IBuildingRepository, BuildingRepository>();
             services.AddTransient<IBuildingApplication, BuildingApplication>();

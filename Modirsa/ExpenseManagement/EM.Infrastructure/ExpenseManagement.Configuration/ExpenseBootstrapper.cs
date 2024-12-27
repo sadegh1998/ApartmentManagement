@@ -10,7 +10,7 @@ namespace ExpenseManagement.Configuration
 {
     public class ExpenseBootstrapper
     {
-        public void Configuration(IServiceCollection services,string connectionString)
+        public static void Configuration(IServiceCollection services,string? connectionString)
         {
             services.AddTransient<IExpenseRepository, ExpenseRepository>();
             services.AddTransient<IExpenseApplication, ExpenseApplication>();

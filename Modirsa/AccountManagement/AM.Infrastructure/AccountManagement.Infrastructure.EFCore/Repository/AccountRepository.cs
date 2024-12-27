@@ -96,7 +96,7 @@ namespace AccountManagement.Infrastructure.EFCore.Repository
             {
                 query = query.Where(x => x.Username.Contains(search.Username));
             }
-            if (search.RoleId > 0)
+            if (search.RoleId != null)
             {
                 query = query.Where(x => x.RoleId == search.RoleId);
             }
