@@ -8,23 +8,22 @@ namespace _0_Framework.Infrstructure
 {
     public static class Roles
     {
-        public const string Administrator = "1";
-        public const string SiteUser = "2";
-        public const string InventoryUser = "4";
-        public const string ColleagueUser = "5";
+        public const string Administrator = "00870196-49b7-4892-aca1-4073f54d6bdf";
+        public const string SiteUser = "00870196-49b7-4892-aca1-4073f54d6bdd";
+        public const string BuildingManager = "00870196-49b7-4892-aca1-4073f54d6bds";
 
 
         public static string GetRoleBy(Guid id)
         {
-            var a = Guid.NewGuid();
+          
             switch (id.ToString())
             {
                 case "00870196-49b7-4892-aca1-4073f54d6bdf":
-                    return "مدیرسیستم";
+                    return "ادمین سامانه";
                 case "00870196-49b7-4892-aca1-4073f54d6bdd":
-                    return "کاربر سیستم";
+                    return "مدیر ساختمان";
                     case "00870196-49b7-4892-aca1-4073f54d6bds":
-                    return "کاربر انبارداری";
+                    return "ساکن ساختمان";
                 default:
                     return "";
             }
