@@ -1,32 +1,121 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider Theme="@_theme" @ref="_mudThemeProvider" IsDarkMode="_isDarkMode" />
+<MudThemeProvider Theme="@_theme" IsDarkMode="GlobalSettings.DarkMode" />
 
-@*  <MudThemeProvider />
- *@
-
-<MudRTLProvider RightToLeft>
+<MudRTLProvider RightToLeft="GlobalSettings.RightToLeft">
     <MudPopoverProvider />
     <MudDialogProvider />
     <MudSnackbarProvider />
-    @*  <Metadata /> *@
     <MudLayout>
-        <MudAppBar Elevation="1">
-            <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
-            <MudSpacer />
-            <MudDivider Vertical="true" FlexItem="true" Class="my-4 mx-2" />
-            @*             <Components.Pages.Subscriptions.BuySubscriptionButton />
- *@            <MudDivider Vertical="true" FlexItem="true" Class="my-4 mx-2" />
-            <MudIconButton Href="https://github.com/sadegh_1998"
-                           Icon="@Icons.Custom.Brands.GitHub" Title="GitHub" Color="Color.Inherit" />
-        </MudAppBar>
-        <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
-            <NavMenu />
-        </MudDrawer>
-        <MudMainContent Class="mt-16 pa-4">
-            <MudContainer MaxWidth="MaxWidth.Large">
-                @Body
-            </MudContainer>
-        </MudMainContent>
+        <CascadingAuthenticationState>
+            <AppBar MenuOnClick="(()=>_NavMenu.DrawerToggle())" />
+            <NavMenu @ref="_NavMenu" />
+            <MudMainContent Class="mt-16 pa-4">
+                <MudContainer MaxWidth="MaxWidth.Large">
+                    @Body
+                </MudContainer>
+            </MudMainContent>
+        </CascadingAuthenticationState>
     </MudLayout>
 </MudRTLProvider>
+
+
+<div id="blazor-error-ui">
+    An unhandled error has occurred.
+    <a href="" class="reload">Reload</a>
+    <a class="dismiss">🗙</a>
+</div>
+
+@code {
+    private MudTheme? _theme = null;
+    private NavMenu _NavMenu;
+
+    protected override void OnInitialized()
+    {
+        base.OnInitialized();
+
+        string[] boldFontFamily = { "vazir-bold" };
+        _theme = new()
+            {
+                Typography = new Typography()
+                {
+                    Default = new Default()
+                    {
+                        FontFamily = ["vazir-regular"]
+                    },
+                    H1 = new H1
+                    {
+                        FontFamily = boldFontFamily,
+                        FontSize = "3.0rem"
+                    },
+                    H2 = new H2
+                    {
+                        FontFamily = boldFontFamily,
+                        FontSize = "2.2rem"
+                    },
+                    H3 = new H3
+                    {
+                        FontFamily = boldFontFamily,
+                        FontSize = "1.75rem"
+                    },
+                    H4 = new H4
+                    {
+                        FontFamily = boldFontFamily,
+                        FontSize = "0.75rem"
+                    },
+                    H5 = new H5
+                    {
+                        FontFamily = boldFontFamily
+                    },
+                    H6 = new H6
+                    {
+                        FontFamily = boldFontFamily
+                    }
+                },
+                PaletteLight = _lightPalette,
+                PaletteDark = _darkPalette,
+                LayoutProperties = new LayoutProperties()
+            };
+    }
+
+    private readonly PaletteLight _lightPalette = new()
+        {
+            Black = "#110e2d",
+            AppbarText = "#424242",
+            AppbarBackground = "rgba(255,255,255,0.8)",
+            DrawerBackground = "rgba(255,255,255,0.8)",
+            GrayLight = "#e8e8e8",
+            GrayLighter = "#f9f9f9",
+        };
+
+    private readonly PaletteDark _darkPalette = new()
+        {
+            Primary = "#7e6fff",
+            Surface = "#1e1e2d",
+            Background = "#1a1a27",
+            BackgroundGray = "#151521",
+            AppbarText = "#92929f",
+            AppbarBackground = "rgba(26,26,39,0.8)",
+            DrawerBackground = "rgba(26,26,39,0.8)",
+            ActionDefault = "#74718e",
+            ActionDisabled = "#9999994d",
+            ActionDisabledBackground = "#605f6d4d",
+            TextPrimary = "#b2b0bf",
+            TextSecondary = "#92929f",
+            TextDisabled = "#ffffff33",
+            DrawerIcon = "#92929f",
+            DrawerText = "#92929f",
+            GrayLight = "#2a2833",
+            GrayLighter = "#1e1e2d",
+            Info = "#4a86ff",
+            Success = "#3dcb6c",
+            Warning = "#ffb545",
+            Error = "#ff3f5f",
+            LinesDefault = "#33323e",
+            TableLines = "#33323e",
+            Divider = "#292838",
+            OverlayLight = "#1e1e2d80",
+        };
+}
+
+

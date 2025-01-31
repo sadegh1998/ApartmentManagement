@@ -1,13 +1,13 @@
 ﻿@inherits LayoutComponentBase
 
-<MudThemeProvider Theme="@_theme" IsDarkMode="GlobalSettings.DarkMode" />
+<MudThemeProvider Theme="@_theme" IsDarkMode="false" />
 
-<MudRTLProvider RightToLeft="GlobalSettings.RightToLeft">
+<MudRTLProvider RightToLeft="true">
     <MudPopoverProvider />
     <MudDialogProvider />
     <MudSnackbarProvider />
     <MudLayout>
-        <CascadingAuthenticationState>
+        @* <CascadingAuthenticationState> *@
             <AppBar MenuOnClick="(()=>_NavMenu.DrawerToggle())" />
             <NavMenu @ref="_NavMenu" />
             <MudMainContent Class="mt-16 pa-4">
@@ -15,7 +15,7 @@
                     @Body
                 </MudContainer>
             </MudMainContent>
-        </CascadingAuthenticationState>
+       @*  </CascadingAuthenticationState> *@
     </MudLayout>
 </MudRTLProvider>
 
@@ -86,36 +86,42 @@
             DrawerBackground = "rgba(255,255,255,0.8)",
             GrayLight = "#e8e8e8",
             GrayLighter = "#f9f9f9",
+            Primary = "#029cf5",
+            Secondary = "#ff7c6e",
+            Info = "#2cbfc7",
+            Success = "#54d169",
+            Warning = "#ff8359",
+            Error = "#F40B48",
         };
 
     private readonly PaletteDark _darkPalette = new()
         {
-            Primary = "#7e6fff",
-            Surface = "#1e1e2d",
-            Background = "#1a1a27",
+            Primary = "#029cf5",
+            Secondary = "#ff7c6e",
+            Surface = "#242526",
+            TableHover = "#3a3b3c",
+            Background = "#18191a",
             BackgroundGray = "#151521",
-            AppbarText = "#92929f",
-            AppbarBackground = "rgba(26,26,39,0.8)",
-            DrawerBackground = "rgba(26,26,39,0.8)",
-            ActionDefault = "#74718e",
+            AppbarText = "#BFBFBF",
+            AppbarBackground = "#242526e6",
+            DrawerBackground = "#242526e6",
+            ActionDefault = "#b3b3b3",
             ActionDisabled = "#9999994d",
             ActionDisabledBackground = "#605f6d4d",
-            TextPrimary = "#b2b0bf",
-            TextSecondary = "#92929f",
+            TextPrimary = "#e4e6eb",
+            TextSecondary = "#b0b3b8",
             TextDisabled = "#ffffff33",
             DrawerIcon = "#92929f",
             DrawerText = "#92929f",
             GrayLight = "#2a2833",
             GrayLighter = "#1e1e2d",
-            Info = "#4a86ff",
-            Success = "#3dcb6c",
-            Warning = "#ffb545",
-            Error = "#ff3f5f",
+            Info = "#2cbfc7",
+            Success = "#54d169",
+            Warning = "#ff8359",
+            Error = "#F40B48",
             LinesDefault = "#33323e",
             TableLines = "#33323e",
-            Divider = "#292838",
+            Divider = "#b0b3b8",
             OverlayLight = "#1e1e2d80",
         };
 }
-
-

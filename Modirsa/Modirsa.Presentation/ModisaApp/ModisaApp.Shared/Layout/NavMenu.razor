@@ -1,0 +1,37 @@
+﻿
+        <MudDrawer @bind-Open="_drawerOpen" Overlay="false" Class="baackdrop-bluered" ClipMode="DrawerClipMode.Always">
+            <MudNavMenu>
+                <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.Home">داشبورد</MudNavLink>
+                <MudNavGroup Title="عملیات" Icon="@Icons.Material.Filled.Cyclone">
+                    <MudNavGroup Title="اعلام قیمت" Icon="@Icons.Material.Filled.PriceChange">
+                        <MudNavLink Href="/operations/BarPricingList">قیمت گذاری بار</MudNavLink>
+                        <MudNavLink Href="/operations/CustomerElamGheymatList">اعلام قیمت</MudNavLink>
+                        <MudNavLink Href="/operations/CustomerReward">پاداش</MudNavLink>
+                        <MudNavLink Href="/operations/CustomerKomakKerayeh">کمک کرایه</MudNavLink>
+                    </MudNavGroup>
+                </MudNavGroup>
+                <MudDivider />
+                <MudDivider />
+
+                @* <MudNavGroup Title="حساب کاربری" Icon="@Icons.Material.Filled.AccountBox">
+                    <AuthorizeView Roles="@AuthorizeRoles.Admin" Context="_AdminCTX">
+                        <NotAuthorized>
+                            <MudNavLink Href="/Accounts/All">لیست کاربران</MudNavLink>
+                            <MudDivider />
+                        </NotAuthorized>
+                    </AuthorizeView>
+                    <MudNavLink Href="/Accounts/information">اطلاعات حساب کاربری</MudNavLink>
+                    <MudNavLink Href="/Accounts/SignOut">خروج</MudNavLink>
+                </MudNavGroup> *@
+            </MudNavMenu>
+        </MudDrawer>
+
+
+@code {
+    private bool _drawerOpen = true;
+    public void DrawerToggle()
+    {
+        _drawerOpen = !_drawerOpen;
+        StateHasChanged();
+    }
+}
