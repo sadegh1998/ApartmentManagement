@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using BuildingManagement.Presentation.Api;
+using Microsoft.Extensions.Logging;
 using ModisaApp.Services;
 using ModisaApp.Shared.Services;
 using MudBlazor;
@@ -39,6 +40,8 @@ namespace ModisaApp
                 config.SnackbarConfiguration.ShowTransitionDuration = 500;
                 config.SnackbarConfiguration.SnackbarVariant = Variant.Filled;
             });
+            builder.Services.AddMvcCore() // Use AddMvcCore for minimal MVC services
+             .AddApplicationPart(typeof(BuildingController).Assembly);
             return builder.Build();
         }
     }

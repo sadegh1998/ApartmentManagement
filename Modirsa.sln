@@ -73,6 +73,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModisaApp.Shared", "Modirsa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModisaApp.Web", "Modirsa\Modirsa.Presentation\ModisaApp\ModisaApp.Web\ModisaApp.Web.csproj", "{C9C4CC7E-0A96-4CFB-95A4-486F6243CD5A}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BM.Presentation", "BM.Presentation", "{48378CF7-40EB-4310-A396-E5226006AE3A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuildingManagement.Presentation.Api", "Modirsa\BuildingManagement.Presentation\BuildingManagement.Presentation.Api.csproj", "{B04DDBF7-D98A-400D-AB7A-8A5A900C6383}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -166,6 +170,10 @@ Global
 		{C9C4CC7E-0A96-4CFB-95A4-486F6243CD5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C9C4CC7E-0A96-4CFB-95A4-486F6243CD5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C9C4CC7E-0A96-4CFB-95A4-486F6243CD5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B04DDBF7-D98A-400D-AB7A-8A5A900C6383}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B04DDBF7-D98A-400D-AB7A-8A5A900C6383}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B04DDBF7-D98A-400D-AB7A-8A5A900C6383}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B04DDBF7-D98A-400D-AB7A-8A5A900C6383}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -205,6 +213,8 @@ Global
 		{77D8DEAE-999F-4F2E-B132-21CC872927DE} = {89CAD88F-15FB-4866-A821-B3BE4D7C4A52}
 		{B6FBEC0C-EDBB-4BA6-BEE8-157C660B9D71} = {89CAD88F-15FB-4866-A821-B3BE4D7C4A52}
 		{C9C4CC7E-0A96-4CFB-95A4-486F6243CD5A} = {89CAD88F-15FB-4866-A821-B3BE4D7C4A52}
+		{48378CF7-40EB-4310-A396-E5226006AE3A} = {277391FA-86A2-4A5B-96DA-066967AC9A35}
+		{B04DDBF7-D98A-400D-AB7A-8A5A900C6383} = {48378CF7-40EB-4310-A396-E5226006AE3A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8AD4E0B2-F358-4C3D-BC59-44590B799898}

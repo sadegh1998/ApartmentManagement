@@ -67,6 +67,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingManagement.Presentation\BuildingManagement.Presentation.Api.csproj" />
     <ProjectReference Include="..\ModisaApp.Shared\ModisaApp.Shared.csproj" />
   </ItemGroup>
 
