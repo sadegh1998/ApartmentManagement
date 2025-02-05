@@ -1,9 +1,14 @@
-﻿using BuildingManagement.Presentation.Api;
+﻿
 using Microsoft.Extensions.Logging;
 using ModisaApp.Services;
+using ModisaApp.Shared.Exceptions;
+using ModisaApp.Shared.Interfaces.Providers;
+using ModisaApp.Shared.Repositories;
 using ModisaApp.Shared.Services;
 using MudBlazor;
 using MudBlazor.Services;
+
+using Microsoft.Extensions.Configuration;
 
 namespace ModisaApp
 {
@@ -18,7 +23,7 @@ namespace ModisaApp
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 });
-
+            var ConnectionString = builder.Configuration.GetConnectionString("ModisaDb");
             // Add device-specific services used by the ModisaApp.Shared project
             builder.Services.AddSingleton<IFormFactor, FormFactor>();
 
@@ -40,8 +45,15 @@ namespace ModisaApp
                 config.SnackbarConfiguration.ShowTransitionDuration = 500;
                 config.SnackbarConfiguration.SnackbarVariant = Variant.Filled;
             });
-            builder.Services.AddMvcCore() // Use AddMvcCore for minimal MVC services
-             .AddApplicationPart(typeof(BuildingController).Assembly);
+            builder.Services.AddScoped<HttpResponseExceptionHander>();
+            builder.Services.AddScoped<IHttpServiceProvider, HttpServiceProvider>();
+          
+            //builder.Services.AddScoped(sp => new HttpClient
+            //{
+            //    BaseAddress = new Uri("http://0.0.0.0:5093/api/") // Change to your actual API URL
+            //});
+builder.Services.AddSingleton<HttpClient>();
+           
             return builder.Build();
         }
     }

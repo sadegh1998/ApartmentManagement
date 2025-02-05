@@ -1,15 +1,10 @@
 ﻿using BuildingManagement.Application.Contract.Building;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace BuildingManagement.Presentation.Api
+namespace ModisaApp.API.Controllers
 {
-    [ApiController]
     [Route("api/[controller]")]
+    [ApiController]
     public class BuildingController : ControllerBase
     {
         private readonly IBuildingApplication _buildingApplication;
@@ -18,7 +13,6 @@ namespace BuildingManagement.Presentation.Api
         {
             _buildingApplication = buildingApplication;
         }
-
         [HttpGet]
         [Route("GetAllBuilding")]
         public async Task<IEnumerable<BuildingViewModel>> GetAllBuildingAsync()
