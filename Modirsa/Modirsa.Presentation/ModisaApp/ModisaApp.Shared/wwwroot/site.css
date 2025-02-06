@@ -18,3 +18,24 @@
 .baackdrop-bluered {
     backdrop-filter: blur(2px) !important
 }
+.grid-container {
+    overflow-x: auto; /* برای جلوگیری از بهم‌ریختگی در موبایل */
+    padding: 8px;
+}
+
+.responsive-grid {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+@media screen and (max-width: 600px) {
+    .mud-table {
+        font-size: 12px; /* کاهش اندازه فونت در موبایل */
+    }
+
+    .mud-button {
+        font-size: 10px;
+        padding: 4px;
+    }
+}

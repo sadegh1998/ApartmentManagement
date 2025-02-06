@@ -14,6 +14,10 @@ namespace ModisaApp.Shared
         public const string ApplicationName = "Scrap Depo";
         public const bool RightToLeft = true;
         public const bool DarkMode = false;
+#if ANDROID
+public const string APIBaseAddress = "http://192.168.1.9:5093/api/";
+#endif
+
 #if DEBUG
         public const string APIBaseAddress = "http://192.168.1.9:5093/api/";
 #else
