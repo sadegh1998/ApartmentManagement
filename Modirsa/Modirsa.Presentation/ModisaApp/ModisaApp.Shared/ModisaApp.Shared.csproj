@@ -7,11 +7,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Pages\BarList.razor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <SupportedPlatform Include="browser" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.Web" Version="9.0.0" />
     <PackageReference Include="MudBlazor" Version="7.16.0" />
   </ItemGroup>
 

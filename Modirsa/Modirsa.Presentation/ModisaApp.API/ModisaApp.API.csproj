@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\BuildingManagement.Application.Contract\BuildingManagement.Application.Contract.csproj" />
     <ProjectReference Include="..\..\BuildingManagement.Configuration\BuildingManagement.Configuration.csproj" />
   </ItemGroup>
 

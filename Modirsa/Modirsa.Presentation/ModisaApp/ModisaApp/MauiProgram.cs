@@ -47,13 +47,13 @@ namespace ModisaApp
             });
             builder.Services.AddScoped<HttpResponseExceptionHander>();
             builder.Services.AddScoped<IHttpServiceProvider, HttpServiceProvider>();
-          
-            //builder.Services.AddScoped(sp => new HttpClient
+
+            //builder.Services.AddSingleton(sp => new HttpClient
             //{
-            //    BaseAddress = new Uri("http://0.0.0.0:5093/api/") // Change to your actual API URL
+            //    BaseAddress = new Uri("http://192.168.1.9:5093/api/") // Change to your actual API URL
             //});
-builder.Services.AddSingleton<HttpClient>();
-           
+            builder.Services.AddSingleton<HttpClient>();
+
             return builder.Build();
         }
     }

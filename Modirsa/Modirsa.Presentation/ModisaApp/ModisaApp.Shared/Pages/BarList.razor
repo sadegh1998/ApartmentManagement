@@ -1,0 +1,49 @@
+﻿@page "/Building/List"
+@using ModisaApp.Shared.DTO.Building
+@using ModisaApp.Shared.Interfaces.Providers
+
+@if (Buildings == null)
+{
+    <MudText>رکوردی یافت نشد</MudText>
+}
+else
+{
+    <MudGrid Style="background-color:red">
+        <MudItem xs="12" sm="9" md="6">
+    <MudDataGrid Items="@Buildings" SortMode="SortMode.Multiple" Filterable="true" Breakpoint="Breakpoint.Sm" Dense="true">
+        <Columns>
+            <!-- ستون ID -->
+            <PropertyColumn Property="x => x.FundBalance" Title="ID" />
+
+            <!-- ستون نوع سند -->
+            <PropertyColumn Property="x => x.BuildingUnitsNo" Title="نوع سند" />
+
+            <!-- ستون تاریخ شروع -->
+            <PropertyColumn Property="x => x.Name" Title="تاریخ شروع" />
+
+            <!-- ستون عملیات (برای دستگاه‌های بزرگ‌تر) -->
+            <TemplateColumn CellClass="d-flex justify-end" Title="عملیات">
+                <CellTemplate>
+                    @*  <MudStack Row>
+                    <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" OnClick="() => EditKomakKerayeh(context.Item.CustomerKomakKerayehId)" aria-label="ویرایش" />
+                    <MudIconButton Icon="@Icons.Material.Filled.RemoveRedEye" Color="Color.Warning" OnClick="() => ShowDetail(context.Item.CustomerKomakKerayehId)" aria-label="مشاهده" />
+                </MudStack> *@
+                </CellTemplate>
+            </TemplateColumn>
+        </Columns>
+    </MudDataGrid>
+        </MudItem>
+    </MudGrid>
+}
+@code{
+    const string APIController = "Building";
+    [Inject] IHttpServiceProvider _httpServiceProvider { get; set; }
+    public IEnumerable<BuildingViewModel>? Buildings { get; set; } = new List<BuildingViewModel>();
+    protected override async Task OnInitializedAsync()
+    {
+        Buildings = await _httpServiceProvider.Get<IEnumerable<BuildingViewModel>?>($"{APIController}/GetAllBuilding");
+        await InvokeAsync(StateHasChanged);
+    }
+}
+
+

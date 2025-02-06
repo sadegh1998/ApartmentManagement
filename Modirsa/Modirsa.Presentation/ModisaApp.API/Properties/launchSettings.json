@@ -7,7 +7,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "APIhttp": {
+    "http": {
       "commandName": "Project",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
