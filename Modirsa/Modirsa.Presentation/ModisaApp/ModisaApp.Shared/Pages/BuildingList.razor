@@ -11,40 +11,34 @@ else if (!Buildings.Any())
     <MudPaper Class="d-flex flex-column align-center justify-center p-6" Style="height: 300px;">
         <MudIcon Icon="@Icons.Material.Filled.Warning" Size="Size.Large" Color="Color.Warning" />
         <MudText Class="mt-3" Typo="Typo.h6">هیچ اطلاعاتی برای نمایش وجود ندارد</MudText>
+        <MudButton OnClick="OpenAddDialog" Variant="Variant.Filled" Color="Color.Primary" Class="mt-3">
+            <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-2" /> افزودن رکورد جدید
+        </MudButton>
     </MudPaper>
 }
 else
 {
-    <MudContainer Class="grid-container">
-        <MudPaper Class="responsive-grid">
-            <MudDataGrid Items="@Buildings"
-                         SortMode="SortMode.Multiple"
-                         Filterable="true"
-                         Breakpoint="Breakpoint.Sm"
-                         Dense="true"
-                         Style="height: 400px; overflow: auto;">
+    <MudButton OnClick="OpenAddDialog" Variant="Variant.Filled" Color="Color.Primary" Class="mt-3">
+        <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-2" /> افزودن رکورد جدید
+    </MudButton>
+    <MudFlexBreak/>
+    <MudGrid Spacing="1">
+        <MudItem xs="12" sm="9" md="6">
+            <MudDataGrid Items="@Buildings" SortMode="SortMode.Multiple" Filterable="true" Breakpoint="Breakpoint.Sm" Dense="true">
                 <Columns>
-                    <!-- ستون ID -->
-                    <PropertyColumn Property="x => x.FundBalance" Title="ID" />
-
-                    <!-- ستون نوع سند -->
-                    <PropertyColumn Property="x => x.BuildingUnitsNo" Title="نوع سند" />
-
-                    <!-- ستون تاریخ شروع -->
-                    <PropertyColumn Property="x => x.Name" Title="تاریخ شروع" />
-
-                    <!-- ستون عملیات -->
-                    <TemplateColumn Title="عملیات">
+                    <PropertyColumn Property="x => x.FundBalance" Title="موجودی صندوق" />
+                    <PropertyColumn Property="x => x.BuildingUnitsNo" Title="تعداد واحد" />
+                    <PropertyColumn Property="x => x.Name" Title="نام ساختمان" />
+                    <TemplateColumn CellClass="d-flex justify-end" Title="عملیات">
                         <CellTemplate>
-                            <MudButton Variant="Variant.Outlined" Color="Color.Primary" Size="Size.Small">
-                                مشاهده
-                            </MudButton>
+                            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" />
+                            <MudIconButton Icon="@Icons.Material.Filled.RemoveRedEye" Color="Color.Warning" />
                         </CellTemplate>
                     </TemplateColumn>
                 </Columns>
             </MudDataGrid>
-        </MudPaper>
-    </MudContainer>
+        </MudItem>
+    </MudGrid>
 
 }
 

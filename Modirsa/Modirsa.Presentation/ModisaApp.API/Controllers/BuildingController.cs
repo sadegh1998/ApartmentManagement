@@ -19,5 +19,12 @@ namespace ModisaApp.API.Controllers
         {
             return await _buildingApplication.GetAll();
         }
+        [HttpPut]
+        [Route("CreateNewBuilding")]
+        public async Task<bool> CreateNewBuilding(CreateBuilding command)
+        {
+            var result = await _buildingApplication.Create(command);
+            return result.IsSuccess;
+        }
     }
 }
