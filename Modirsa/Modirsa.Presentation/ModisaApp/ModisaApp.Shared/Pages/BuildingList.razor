@@ -2,11 +2,12 @@
 @using ModisaApp.Shared.DTO.Building
 @using ModisaApp.Shared.Interfaces.Providers
 
-@if (Buildings == null)
+@if (!IsLoading)
 {
-    <MudProgressCircular Indeterminate="true" Color="Color.Primary" />
+    <Loading/>
 }
-else if (!Buildings.Any())
+
+@if (!Buildings.Any())
 {
     <MudPaper Class="d-flex flex-column align-center justify-center p-6" Style="height: 300px;">
         <MudIcon Icon="@Icons.Material.Filled.Warning" Size="Size.Large" Color="Color.Warning" />
@@ -23,7 +24,7 @@ else
     </MudButton>
     <MudFlexBreak/>
     <MudGrid Spacing="1">
-        <MudItem xs="12" sm="9" md="6">
+        <MudItem xs="12">
             <MudDataGrid Items="@Buildings" SortMode="SortMode.Multiple" Filterable="true" Breakpoint="Breakpoint.Sm" Dense="true">
                 <Columns>
                     <PropertyColumn Property="x => x.FundBalance" Title="موجودی صندوق" />

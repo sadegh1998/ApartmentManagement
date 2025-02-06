@@ -12,15 +12,18 @@ namespace ModisaApp.Shared.Pages
         [Inject] IHttpServiceProvider _httpServiceProvider { get; set; }
         [Inject] IDialogService _DialogService { get; set; }
         public IEnumerable<BuildingViewModel>? Buildings { get; set; } = new List<BuildingViewModel>();
+        public bool IsLoading { get; set; } = false;
         protected override async Task OnInitializedAsync()
         {
             //Buildings = await _httpServiceProvider.Get<IEnumerable<BuildingViewModel>?>($"{APIController}/GetAllBuilding");
             //await InvokeAsync(StateHasChanged);
             await LoadBuildings();
+           
         }
         async Task LoadBuildings()
         {
             Buildings = (await _httpServiceProvider.Get<IEnumerable<BuildingViewModel>?>($"{APIController}/GetAllBuilding")) ?? new List<BuildingViewModel>();
+            IsLoading = true;
         }
         async Task OpenAddDialog()
         {
