@@ -1,0 +1,28 @@
+﻿@using ModisaApp.Shared.DTO.Building
+<MudDialog>
+    <DialogContent>
+        <MudGrid Container Spacing="2">
+            <MudItem xs="12" sm="6">
+                <MudTextField T="string" @bind-Value="EditBuilding.Name" Label="نام ساختمان" Variant="Variant.Outlined" Required="true" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudTextField T="string" @bind-Value="EditBuilding.Address" Label="آدرس" Variant="Variant.Outlined" Required="true" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudTextField T="int" @bind-Value="EditBuilding.Floors" Label="تعداد طبقات" Variant="Variant.Outlined" Required="true" Type="number" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudTextField T="int" @bind-Value="EditBuilding.BuildingUnitsNo" Label="تعداد واحدها" Variant="Variant.Outlined" Required="true" Type="number" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudTextField T="decimal" @bind-Value="EditBuilding.FundBalance" Label="موجودی صندوق" Variant="Variant.Outlined" Required="true" Type="number" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudTextField T="string" @bind-Value="EditBuilding.Image" Label="لینک تصویر (اختیاری)" Variant="Variant.Outlined" />
+            </MudItem>
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <BaseButton Color="Color.Primary" Variant="Variant.Filled" OnClick="EditdBuilding">ایجاد ساختمان</BaseButton>
+    </DialogActions>
+</MudDialog>

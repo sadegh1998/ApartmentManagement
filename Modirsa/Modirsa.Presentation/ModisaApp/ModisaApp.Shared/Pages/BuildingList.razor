@@ -30,8 +30,8 @@ else
                     <PropertyColumn Property="x => x.Name" Title="نام ساختمان" />
                     <TemplateColumn CellClass="d-flex justify-end" Title="عملیات">
                         <CellTemplate>
-                            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" />
-                            <MudIconButton Icon="@Icons.Material.Filled.RemoveRedEye" Color="Color.Warning" />
+                            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" Size="Size.Small" OnClick="()=>OpenEditDialog(context.Item.Id)" />
+                            <MudIconButton Icon="@Icons.Material.Filled.RemoveRedEye" Size="Size.Small" Color="Color.Warning" OnClick="()=>OpenDetailDialog(context.Item.Id)" />
                         </CellTemplate>
                     </TemplateColumn>
                 </Columns>

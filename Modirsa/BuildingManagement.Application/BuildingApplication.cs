@@ -49,6 +49,7 @@ namespace BuildingManagement.Application
             var buildings = await _repository.GetAllAsync();
             return buildings.Select(x => new BuildingViewModel
             {
+                Id = x.Id,
                 Name = x.Name,
                 BuildingUnitsNo = x.BuildingUnitsNo,
                 Floors = x.Floors,
@@ -56,15 +57,17 @@ namespace BuildingManagement.Application
             }).ToList();
         }
 
-        public async Task<BuildingViewModel> GetBuildingBy(Guid Id)
+        public async Task<EditBuilding> GetBuildingBy(Guid Id)
         {
             var building = await _repository.GetAsync(Id);
-            return new BuildingViewModel
+            return new EditBuilding
             {
+                Id = Id,
                 BuildingUnitsNo = building.BuildingUnitsNo,
                 Floors = building.Floors,
                 Name = building.Name,
-                FundBalance = building.FundBalance
+                FundBalance = building.FundBalance,
+                Address = building.Address,
             };
         }
 
@@ -74,6 +77,7 @@ namespace BuildingManagement.Application
             var result = buildings.Where(x => x.Name.Contains(searchModel.Name));
             return result.Select(x => new BuildingViewModel
             {
+                Id = x.Id,
                 BuildingUnitsNo = x.BuildingUnitsNo,
                 Name = x.Name,
                 Floors = x.Floors,

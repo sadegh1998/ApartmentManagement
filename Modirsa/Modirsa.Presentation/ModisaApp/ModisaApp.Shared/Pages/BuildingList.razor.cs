@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components;
 using ModisaApp.Shared.Components.Dialogs;
+using ModisaApp.Shared.Components.Dialogs.Building;
 using ModisaApp.Shared.DTO.Building;
 using ModisaApp.Shared.Interfaces.Providers;
 using MudBlazor;
@@ -38,9 +39,36 @@ namespace ModisaApp.Shared.Pages
                 await AddBuilding(newBuilding);
             }
         }
+        async Task OpenEditDialog(Guid Id)
+        {
+            var building = await _httpServiceProvider.Get<EditBuilding>($"{APIController}/GetBuildingAsyncBy?Id={Id}");
+            var parameters = new DialogParameters<EditBuildingDialog> 
+            {
+                {x=>x.EditBuilding , building }
+            };
+            var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true };
+            var dialog = await _DialogService.ShowAsync<EditBuildingDialog>("افزودن ساختمان جدید", parameters, options);
+            var result = await dialog.Result;
+            if (!result.Canceled && result.Data is EditBuilding update)
+            {
+                await _httpServiceProvider.Put<EditBuilding, bool>($"{APIController}/EditBuilding", update);
+                await LoadBuildings();
+            }
+        }
+        async Task OpenDetailDialog(Guid Id)
+        {
+            var building = await _httpServiceProvider.Get<EditBuilding>($"{APIController}/GetBuildingAsyncBy?Id={Id}");
+            var parameters = new DialogParameters<DetailBuildingDialog>
+            {
+                {x=>x.EditBuilding , building }
+            };
+            var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true };
+            var dialog = await _DialogService.ShowAsync<DetailBuildingDialog>("افزودن ساختمان جدید", parameters, options);
+            
+        }
         async Task AddBuilding(CreateBuilding newBuilding)
         {
-            await _httpServiceProvider.Put<CreateBuilding, bool>($"{APIController}/CreateNewBuilding", newBuilding);
+            await _httpServiceProvider.Post<CreateBuilding, bool>($"{APIController}/CreateNewBuilding", newBuilding);
             await LoadBuildings();
         }
     }

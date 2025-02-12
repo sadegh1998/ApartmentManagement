@@ -6,7 +6,7 @@ namespace BuildingManagement.Application.Contract.Building
     {
         Task<OperationResult> Create(CreateBuilding command);
         Task<OperationResult> Edit(EditBuilding command);
-        Task<BuildingViewModel> GetBuildingBy(Guid Id);
+        Task<EditBuilding> GetBuildingBy(Guid Id);
         Task<List<BuildingViewModel>> GetAll();
         Task<List<BuildingViewModel>> Search(BuildingSearchModel searchModel);
     }
