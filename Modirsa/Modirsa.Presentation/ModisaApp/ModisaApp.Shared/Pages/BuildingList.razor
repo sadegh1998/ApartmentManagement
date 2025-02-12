@@ -7,22 +7,20 @@
     <Loading/>
 }
 
+<MudButton OnClick="OpenAddDialog" Variant="Variant.Filled" Color="Color.Primary" Class="mt-3">
+    <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-2" /> افزودن رکورد جدید
+</MudButton>
+
 @if (!Buildings.Any())
 {
     <MudPaper Class="d-flex flex-column align-center justify-center p-6" Style="height: 300px;">
         <MudIcon Icon="@Icons.Material.Filled.Warning" Size="Size.Large" Color="Color.Warning" />
         <MudText Class="mt-3" Typo="Typo.h6">هیچ اطلاعاتی برای نمایش وجود ندارد</MudText>
-        <MudButton OnClick="OpenAddDialog" Variant="Variant.Filled" Color="Color.Primary" Class="mt-3">
-            <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-2" /> افزودن رکورد جدید
-        </MudButton>
     </MudPaper>
 }
 else
 {
-    <MudButton OnClick="OpenAddDialog" Variant="Variant.Filled" Color="Color.Primary" Class="mt-3">
-        <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-2" /> افزودن رکورد جدید
-    </MudButton>
-    <MudFlexBreak/>
+   
     <MudGrid Spacing="1">
         <MudItem xs="12">
             <MudDataGrid Items="@Buildings" SortMode="SortMode.Multiple" Filterable="true" Breakpoint="Breakpoint.Sm" Dense="true">
