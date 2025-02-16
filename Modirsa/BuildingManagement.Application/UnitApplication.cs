@@ -56,15 +56,16 @@ namespace BuildingManagement.Application
             return await _unitRepository.GetAllUnitsWithBuildingAsync();
         }
 
-        public async Task<UnitViewModel> GetUnitBy(Guid id)
+        public async Task<EditUnit> GetUnitBy(Guid id)
         {
             var unit = await _unitRepository.GetAsync(id);
-            return new UnitViewModel { 
+            return new EditUnit { 
             Name = unit.Name,
-            BuildingName = unit.Building.Name,
             NumberOfFamilyMembers = unit.NumberOfFamilyMembers,
             OwnerTenanStatus = unit.OwnerTenanStatus,   
-            UnitNumber = unit.UnitNumber
+            UnitNumber = unit.UnitNumber,
+            BuildingId = unit.BuildingId,
+            Id = unit.Id
             };
         }
 

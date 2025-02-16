@@ -11,7 +11,7 @@ namespace BuildingManagement.Application.Contract.Unit
     {
         Task<OperationResult> CreateAsync(CreateUnit command);
         Task<OperationResult> EditAsync(EditUnit command);
-        Task<UnitViewModel> GetUnitBy(Guid id);
+        Task<EditUnit> GetUnitBy(Guid id);
         Task<List<UnitViewModel>> GetAllUnit();
         Task<List<UnitViewModel>> Search(UnitSearchModel searchModel);
     }

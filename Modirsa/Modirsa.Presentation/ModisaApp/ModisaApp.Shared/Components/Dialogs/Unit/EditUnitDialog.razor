@@ -1,0 +1,22 @@
+﻿<MudDialog>
+    <DialogContent>
+        <MudGrid Container Spacing="2">
+            <MudItem xs="12" sm="6">
+                <MudTextField T="string" @bind-Value="EditUnit.Name" Label="نام ساکن واحد" Variant="Variant.Outlined" Required="true" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudTextField T="string" @bind-Value="EditUnit.OwnerTenanStatus" Label="وضعیت مالکیت" Variant="Variant.Outlined" Required="true" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudNumericField T="int" @bind-Value="EditUnit.UnitNumber" Label="شماره واحد" Variant="Variant.Outlined" Required="true" Type="number" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudNumericField T="int" @bind-Value="EditUnit.NumberOfFamilyMembers" Label="تعداد اعضای خانوار" Variant="Variant.Outlined" Required="true" Type="number" />
+            </MudItem>
+
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <BaseButton Color="Color.Primary" Variant="Variant.Filled" OnClick="EditUnitAsync">ویرایش واحد</BaseButton>
+    </DialogActions>
+</MudDialog>

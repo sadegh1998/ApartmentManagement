@@ -41,11 +41,28 @@ namespace ModisaApp.Shared.Components.Custom.Unit
         async Task AddUnit(CreateUnit newUnit)
         {
             await _httpServiceProvider.Post<CreateUnit, bool>($"{APIController}/CreateUnitAsync", newUnit);
+            await OnInitializedAsync();
         }
 
         async Task OpenEditDialog(Guid Id)
         {
+            var parameters = new DialogParameters<EditUnitDialog>
+            {
+                {x=>x.UnitId  , Id }
+            };
+            var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true };
 
+            var dialog = await _DialogService.ShowAsync<EditUnitDialog>("ویرایش واحد ", parameters, options);
+            var result = await dialog.Result;
+            if (!result.Canceled && result.Data is EditUnit update)
+            {
+                await EditUnit(update);
+            }
+        }
+        async Task EditUnit(EditUnit update)
+        {
+            await _httpServiceProvider.Put<EditUnit, bool>($"{APIController}/EditUnitAsync", update);
+            await OnInitializedAsync();
         }
         async Task OpenDetailDialog(Guid Id)
         {

@@ -24,7 +24,7 @@ namespace ModisaApp.API.Controllers
 
         [HttpGet]
         [Route("GetUnitByAsync")]
-        public async Task<UnitViewModel> GetUnitByAsync(Guid Id)
+        public async Task<EditUnit> GetUnitByAsync(Guid Id)
         {
             return await _unitApplication.GetUnitBy(Id);
         }
