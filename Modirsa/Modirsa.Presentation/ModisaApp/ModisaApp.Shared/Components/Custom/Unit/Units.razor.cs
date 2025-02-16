@@ -66,7 +66,13 @@ namespace ModisaApp.Shared.Components.Custom.Unit
         }
         async Task OpenDetailDialog(Guid Id)
         {
+            var parameters = new DialogParameters<DetailUnitDialog>
+            {
+                {x=>x.UnitId  , Id }
+            };
+            var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true };
 
+            var dialog = await _DialogService.ShowAsync<DetailUnitDialog>("جزییات واحد ", parameters, options);
         }
     }
 }

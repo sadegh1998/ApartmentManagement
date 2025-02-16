@@ -1,3 +1,22 @@
-﻿<h3>DetailUnitDialog</h3>
+﻿<MudDialog>
+    <DialogContent>
+        <MudForm ReadOnly="true">
+        <MudGrid Container Spacing="2">
+            <MudItem xs="12" sm="6">
+                <MudTextField T="string" @bind-Value="UnitDetail.Name" Label="نام ساکن واحد" Variant="Variant.Outlined" Required="true" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudTextField T="string" @bind-Value="UnitDetail.OwnerTenanStatus" Label="وضعیت مالکیت" Variant="Variant.Outlined" Required="true" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudNumericField T="int" @bind-Value="UnitDetail.UnitNumber" Label="شماره واحد" Variant="Variant.Outlined" Required="true" Type="number" />
+            </MudItem>
+            <MudItem xs="12" sm="6">
+                <MudNumericField T="int" @bind-Value="UnitDetail.NumberOfFamilyMembers" Label="تعداد اعضای خانوار" Variant="Variant.Outlined" Required="true" Type="number" />
+            </MudItem>
 
-
+        </MudGrid>
+        </MudForm>
+    </DialogContent>
+    
+</MudDialog>
