@@ -54,6 +54,7 @@ namespace BuildingManagement.Application
         {
             var unit = await _unitRepository.GetAllAsync();
             return unit.Select(x => new UnitViewModel {
+                Id = x.Id,
             Name = x.Name,
             UnitNumber= x.UnitNumber,
             NumberOfFamilyMembers= x.NumberOfFamilyMembers,

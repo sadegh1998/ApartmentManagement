@@ -1,4 +1,4 @@
-﻿namespace BuildingManagement.Application.Contract.Unit
+﻿namespace ModisaApp.Shared.DTO.Unit
 {
     public class UnitViewModel
     {

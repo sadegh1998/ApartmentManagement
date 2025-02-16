@@ -1,5 +1,6 @@
 ﻿using BuildingManagement.Application;
 using BuildingManagement.Application.Contract.Building;
+using BuildingManagement.Application.Contract.Unit;
 using BuildingManagement.Domain.BuildingAgg;
 using BuildingManagement.Domain.UnitAgg;
 using BuildingManagement.Infrastructure.EFCore;
@@ -16,6 +17,7 @@ namespace BuildingManagement.Configuration
             services.AddTransient<IBuildingRepository, BuildingRepository>();
             services.AddTransient<IBuildingApplication, BuildingApplication>();
             services.AddTransient<IUnitRepository, UnitRepository>();
+            services.AddTransient<IUnitApplication, UnitApplication>();
 
 
             services.AddDbContext<BuildingContext>(x => x.UseSqlServer(connectionString));

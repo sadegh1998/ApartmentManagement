@@ -1,12 +1,11 @@
-﻿namespace BuildingManagement.Application.Contract.Unit
+﻿namespace ModisaApp.Shared.DTO.Unit
 {
-    public class UnitViewModel
+    public class CreateUnit
     {
-        public Guid Id { get; set; }
         public string Name { get; set; }
         public int UnitNumber { get; set; }
         public string OwnerTenanStatus { get; set; }
         public int NumberOfFamilyMembers { get; set; }
-        public string BuildingName { get; set; }
+        public Guid BuildingId { get; set; }
     }
 }
