@@ -1,5 +1,6 @@
 ﻿using _0_Framework.Application;
 using BuildingManagement.Application.Contract.Unit;
+using BuildingManagement.Domain.BuildingAgg;
 using BuildingManagement.Domain.UnitAgg;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,10 @@ namespace BuildingManagement.Application
     public class UnitApplication : IUnitApplication
     {
         private readonly IUnitRepository _unitRepository;
-
         public UnitApplication(IUnitRepository unitRepository)
         {
             _unitRepository = unitRepository;
+           
         }
 
         public async Task<OperationResult> CreateAsync(CreateUnit command)
@@ -52,15 +53,7 @@ namespace BuildingManagement.Application
 
         public async Task<List<UnitViewModel>> GetAllUnit()
         {
-            var unit = await _unitRepository.GetAllAsync();
-            return unit.Select(x => new UnitViewModel {
-                Id = x.Id,
-            Name = x.Name,
-            UnitNumber= x.UnitNumber,
-            NumberOfFamilyMembers= x.NumberOfFamilyMembers,
-            OwnerTenanStatus=x.OwnerTenanStatus,
-            BuildingName = x.Building.Name
-            }).ToList();
+            return await _unitRepository.GetAllUnitsWithBuildingAsync();
         }
 
         public async Task<UnitViewModel> GetUnitBy(Guid id)

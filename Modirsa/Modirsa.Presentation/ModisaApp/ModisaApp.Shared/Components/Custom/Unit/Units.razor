@@ -1,17 +1,13 @@
-﻿@page "/Building/List"
-@using ModisaApp.Shared.DTO.Building
-@using ModisaApp.Shared.Interfaces.Providers
-
-@if (!IsLoading)
+﻿@if (!IsLoading)
 {
-    <Loading/>
+    <Loading />
 }
 
 <MudButton OnClick="OpenAddDialog" Variant="Variant.Filled" Color="Color.Primary" Class="mt-3">
     <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-2" /> افزودن رکورد جدید
 </MudButton>
 
-@if (!Buildings.Any())
+@if (!_AllUnits.Any())
 {
     <MudPaper Class="d-flex flex-column align-center justify-center p-6" Style="height: 300px;">
         <MudIcon Icon="@Icons.Material.Filled.Warning" Size="Size.Large" Color="Color.Warning" />
@@ -20,20 +16,16 @@
 }
 else
 {
-   
+
     <MudGrid Spacing="1">
         <MudItem xs="12">
-            <MudDataGrid Items="@Buildings" SortMode="SortMode.Multiple" Filterable="true" Breakpoint="Breakpoint.Sm" Dense="true">
+            <MudDataGrid Items="@_AllUnits" SortMode="SortMode.Multiple" Filterable="true" Breakpoint="Breakpoint.Sm" Dense="true">
                 <Columns>
-                    <PropertyColumn Property="x => x.FundBalance" Title="موجودی صندوق" />
-                    <PropertyColumn Property="x => x.BuildingUnitsNo" Title="تعداد واحد" />
-                    <PropertyColumn Property="x => x.Name" Title="نام ساختمان" />
+                    <PropertyColumn Property="x => x.Name" Title="نام ساکن" />
+                    <PropertyColumn Property="x => x.UnitNumber" Title="شماره واحد" />
+                    <PropertyColumn Property="x => x.OwnerTenanStatus" Title="وضعیت مالکیت ساکن" />
                     <TemplateColumn CellClass="d-flex justify-end" Title="عملیات">
                         <CellTemplate>
-                            <MudMenu Variant="Variant.Filled" Color="Color.Info" Dense Size="Size.Small" Icon="@Icons.Material.Filled.MoreHoriz" DropShadow>
-                                <MudMenuItem OnClick="() => ShowBuildingUnits(context.Item)">ِواحدها</MudMenuItem>
-
-                            </MudMenu>
                             <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" Size="Size.Small" OnClick="()=>OpenEditDialog(context.Item.Id)" />
                             <MudIconButton Icon="@Icons.Material.Filled.RemoveRedEye" Size="Size.Small" Color="Color.Warning" OnClick="()=>OpenDetailDialog(context.Item.Id)" />
                         </CellTemplate>
@@ -44,6 +36,5 @@ else
     </MudGrid>
 
 }
-
 
 

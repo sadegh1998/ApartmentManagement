@@ -1,16 +1,17 @@
 ﻿using Microsoft.AspNetCore.Components;
-using ModisaApp.Shared.Components.Dialogs.Building;
 using ModisaApp.Shared.Components.Dialogs.Unit;
 using ModisaApp.Shared.DTO.Unit;
 using ModisaApp.Shared.Interfaces.Providers;
 using MudBlazor;
 
-namespace ModisaApp.Shared.Pages.Unit
+namespace ModisaApp.Shared.Components.Custom.Unit
 {
-    public partial class UnitsList
+    public partial class Units
     {
+        [Parameter]
+        public Guid BuildingId { get; set; }
         const string APIController = "Unit";
-        [Inject] IHttpServiceProvider _httpServiceProvider {  get; set; }
+        [Inject] IHttpServiceProvider _httpServiceProvider { get; set; }
         [Inject] IDialogService _DialogService { get; set; }
         [Inject] ISnackbar Snackbar { get; set; }
         public IEnumerable<UnitViewModel>? _AllUnits { get; set; } = new List<UnitViewModel>();
@@ -23,7 +24,9 @@ namespace ModisaApp.Shared.Pages.Unit
         }
         async Task OpenAddDialog()
         {
-            var parameters = new DialogParameters<CreateUnit>();
+            var parameters = new DialogParameters<AddUnitDialog> {
+                {x=>x.BuildingId , BuildingId}
+            };
             var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true };
 
             var dialog = await _DialogService.ShowAsync<AddUnitDialog>("افزودن واحد جدید", parameters, options);
@@ -35,9 +38,9 @@ namespace ModisaApp.Shared.Pages.Unit
             }
         }
 
-         async Task AddUnit(CreateUnit newUnit)
+        async Task AddUnit(CreateUnit newUnit)
         {
-            await _httpServiceProvider.Post<CreateUnit, bool>($"{APIController}/CreateNewUnit", newUnit);
+            await _httpServiceProvider.Post<CreateUnit, bool>($"{APIController}/CreateUnitAsync", newUnit);
         }
 
         async Task OpenEditDialog(Guid Id)

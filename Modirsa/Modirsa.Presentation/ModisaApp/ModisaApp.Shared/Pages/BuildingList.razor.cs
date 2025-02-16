@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Components;
 using ModisaApp.Shared.Components.Dialogs;
 using ModisaApp.Shared.Components.Dialogs.Building;
+using ModisaApp.Shared.Components.Dialogs.Unit;
 using ModisaApp.Shared.DTO.Building;
 using ModisaApp.Shared.Interfaces.Providers;
 using MudBlazor;
@@ -70,6 +71,15 @@ namespace ModisaApp.Shared.Pages
         {
             await _httpServiceProvider.Post<CreateBuilding, bool>($"{APIController}/CreateNewBuilding", newBuilding);
             await LoadBuildings();
+        }
+        async Task ShowBuildingUnits(BuildingViewModel command)
+        {
+            var parameters = new DialogParameters<BuildingUnitsListDialog>
+            {
+                {x=>x.BuildingId , command.Id }
+            };
+            var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Large, FullWidth = true };
+            var dialog = await _DialogService.ShowAsync<BuildingUnitsListDialog>("افزودن واحد جدید", parameters, options);
         }
     }
 }

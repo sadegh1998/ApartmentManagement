@@ -1,0 +1,10 @@
+﻿@using ModisaApp.Shared.Components.Custom.Unit
+<MudDialog>
+    <DialogContent>
+        <Units BuildingId="BuildingId"/>
+    </DialogContent>
+</MudDialog>
+@code {
+    [Parameter]
+    public Guid BuildingId { get; set; }
+}
