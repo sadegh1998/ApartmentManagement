@@ -10,9 +10,10 @@ namespace Application.Feature.Command.Building.CreateBuilding
     {
         private readonly IBuildingRepository _buildingRepository;
         private readonly IMapper _mapper;
-        public CreateBuildingHandler(IBuildingRepository buildingRepository)
+        public CreateBuildingHandler(IBuildingRepository buildingRepository, IMapper mapper)
         {
             _buildingRepository = buildingRepository;
+            _mapper = mapper;
         }
 
         public async Task<OperationResult> Handle(CreateBuildingCommand request, CancellationToken cancellationToken)
