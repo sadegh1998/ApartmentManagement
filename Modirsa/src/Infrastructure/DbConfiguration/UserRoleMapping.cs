@@ -8,7 +8,7 @@ namespace Infrastructure.DbConfiguration
     {
         public void Configure(EntityTypeBuilder<UserRole> builder)
         {
-            builder.ToTable("UserRoles", "Acc");
+            builder.ToTable("UserRoles");
             builder.HasKey(x => x.Id);
 
             builder.HasOne(ur => ur.User)

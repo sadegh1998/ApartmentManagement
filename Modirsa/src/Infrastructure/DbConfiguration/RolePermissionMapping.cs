@@ -8,7 +8,7 @@ namespace Infrastructure.DbConfiguration
     {
         public void Configure(EntityTypeBuilder<RolePermission> builder)
         {
-            builder.ToTable("RolePermissions", "Acc");
+            builder.ToTable("RolePermissions");
 
             builder.HasKey(rp => rp.Id);
 

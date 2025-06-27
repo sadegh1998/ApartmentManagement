@@ -1,4 +1,6 @@
-﻿namespace AccountManagement.Application.Contract.Account
+﻿using _0_Framework.Application;
+
+namespace AccountManagement.Application.Contract.Account
 {
     public interface IAccountApplication 
     {
