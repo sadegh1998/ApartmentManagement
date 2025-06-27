@@ -24,6 +24,7 @@ namespace Infrastructure
             services.AddScoped<IUserRoleRepository, UserRoleRepository>();
             services.AddTransient<IBuildingRepository, BuildingRepository>();
             services.AddTransient<IUnitRepository, UnitRepository>();
+            services.AddTransient<IExpenseRepository, ExpenseRepository>();
             return services;
         }
     }
