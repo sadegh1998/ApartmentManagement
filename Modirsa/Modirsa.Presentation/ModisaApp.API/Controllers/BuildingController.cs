@@ -1,4 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.Feature.Command.Building.CreateBuilding;
+using Application.Feature.Command.Building.EditBuilding;
+using Application.Feature.Query.Building.GetAllBuilding;
+using Application.Feature.Query.Building.GetBuildingById;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ModisaApp.API.Controllers
 {
@@ -6,37 +11,42 @@ namespace ModisaApp.API.Controllers
     [ApiController]
     public class BuildingController : ControllerBase
     {
-        //private readonly IBuildingApplication _buildingApplication;
+        private readonly IMediator _mediator;
 
-        //public BuildingController(IBuildingApplication buildingApplication)
-        //{
-        //    _buildingApplication = buildingApplication;
-        //}
-        //[HttpGet]
-        //[Route("GetAllBuilding")]
-        //public async Task<IEnumerable<BuildingViewModel>> GetAllBuildingAsync()
-        //{
-        //    return await _buildingApplication.GetAll();
-        //}
-        //[HttpGet]
-        //[Route("GetBuildingAsyncBy")]
-        //public async Task<EditBuilding> GetBuildingAsyncBy(Guid Id)
-        //{
-        //    return await _buildingApplication.GetBuildingBy(Id);
-        //}
-        //[HttpPost]
-        //[Route("CreateNewBuilding")]
-        //public async Task<bool> CreateNewBuilding([FromBody] CreateBuilding command)
-        //{
-        //    var result = await _buildingApplication.Create(command);
-        //    return result.IsSuccess;
-        //}
-        //[HttpPut]
-        //[Route("EditBuilding")]
-        //public async Task<bool> EditBuildingAsync([FromBody] EditBuilding command)
-        //{
-        //    var result = await _buildingApplication.Edit(command);
-        //    return result.IsSuccess;
-        //}
+        public BuildingController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
+
+        [HttpGet]
+        [Route("GetAllBuilding")]
+        public async Task<IActionResult> GetAllBuildingAsync()
+        {
+            var query = new GetAllBuildingQuery();
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+        [HttpGet]
+        [Route("GetBuildingAsyncBy")]
+        public async Task<IActionResult> GetBuildingAsyncBy(Guid Id)
+        {
+            var query = new GetBuildingByIdQuery(Id);
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+        [HttpPost]
+        [Route("CreateNewBuilding")]
+        public async Task<IActionResult> CreateNewBuilding([FromBody] CreateBuildingCommand command)
+        {
+            var result =await _mediator.Send(command);
+            return Ok(result);
+        }
+        [HttpPut]
+        [Route("EditBuilding")]
+        public async Task<IActionResult> EditBuildingAsync([FromBody] EditBuildingCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
     }
 }
