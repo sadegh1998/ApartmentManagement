@@ -69,7 +69,7 @@ namespace ModisaApp.Shared.Pages
         }
         async Task AddBuilding(CreateBuilding newBuilding)
         {
-            await _httpServiceProvider.Post<CreateBuilding, bool>($"{APIController}/CreateNewBuilding", newBuilding);
+            await _httpServiceProvider.Post<CreateBuilding, object>($"{APIController}/CreateNewBuilding", newBuilding);
             await LoadBuildings();
         }
         async Task ShowBuildingUnits(BuildingViewModel command)

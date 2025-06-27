@@ -40,7 +40,7 @@ namespace ModisaApp.Shared.Components.Custom.Unit
 
         async Task AddUnit(CreateUnit newUnit)
         {
-            await _httpServiceProvider.Post<CreateUnit, bool>($"{APIController}/CreateUnitAsync", newUnit);
+            await _httpServiceProvider.Post<CreateUnit, object>($"{APIController}/CreateUnitAsync", newUnit);
             await OnInitializedAsync();
         }
 
@@ -61,7 +61,7 @@ namespace ModisaApp.Shared.Components.Custom.Unit
         }
         async Task EditUnit(EditUnit update)
         {
-            await _httpServiceProvider.Put<EditUnit, bool>($"{APIController}/EditUnitAsync", update);
+            await _httpServiceProvider.Put<EditUnit, object>($"{APIController}/EditUnitAsync", update);
             await OnInitializedAsync();
         }
         async Task OpenDetailDialog(Guid Id)

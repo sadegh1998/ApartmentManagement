@@ -1,4 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Application.Feature.Command.Unit.CreateUnit;
+using Application.Feature.Command.Unit.EditUnit;
+using Application.Feature.Query.Unit.GetAllUnits;
+using Application.Feature.Query.Unit.GetUnitById;
+using Application.Feature.Query.Unit.SearchUnit;
+using MediatR;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ModisaApp.API.Controllers
 {
@@ -6,46 +12,52 @@ namespace ModisaApp.API.Controllers
     [ApiController]
     public class UnitController : ControllerBase
     {
-        //private readonly IUnitApplication _unitApplication;
+       private readonly IMediator _mediator;
 
-        //public UnitController(IUnitApplication unitApplication)
-        //{
-        //    _unitApplication = unitApplication;
-        //}
+        public UnitController(IMediator mediator)
+        {
+            _mediator = mediator;
+        }
 
-        //[HttpGet]
-        //[Route("GetAllUnitsAsync")]
-        //public async Task<List<UnitViewModel>> GetAllUnitsAsync()
-        //{
-        //    return await _unitApplication.GetAllUnit();
-        //}
 
-        //[HttpGet]
-        //[Route("GetUnitByAsync")]
-        //public async Task<EditUnit> GetUnitByAsync(Guid Id)
-        //{
-        //    return await _unitApplication.GetUnitBy(Id);
-        //}
-        //[HttpPost]
-        //[Route("CreateUnitAsync")]
-        //public async Task<bool> CreateUnitAsync([FromBody] CreateUnit command)
-        //{
-        //    var result = await _unitApplication.CreateAsync(command);
-        //    return result.IsSuccess;
-        //}
-        //[HttpPut]
-        //[Route("EditUnitAsync")]
-        //public async Task<bool> EditUnitAsync([FromBody] EditUnit command)
-        //{
-        //    var result = await _unitApplication.EditAsync(command);
-        //    return result.IsSuccess;
-        //}
-        //[HttpPatch]
-        //[Route("SearchUnitAsync")]
-        //public async Task<List<UnitViewModel>> SearchUnitAsync([FromBody] UnitSearchModel command)
-        //{
-        //    return await _unitApplication.Search(command);
-        //}
+        [HttpGet]
+        [Route("GetAllUnitsAsync")]
+        public async Task<IActionResult> GetAllUnitsAsync()
+        {
+            var query = new GetAllUnitsQuery();
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+
+        [HttpGet]
+        [Route("GetUnitByAsync")]
+        public async Task<IActionResult> GetUnitByAsync(Guid Id)
+        {
+            var query = new GetUnitByIdQuery(Id);
+            var result = await _mediator.Send(query);
+            return Ok(result);
+        }
+        [HttpPost]
+        [Route("CreateUnitAsync")]
+        public async Task<IActionResult> CreateUnitAsync([FromBody] CreateUnitCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+        [HttpPut]
+        [Route("EditUnitAsync")]
+        public async Task<IActionResult> EditUnitAsync([FromBody] EditUnitCommand command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
+        [HttpPatch]
+        [Route("SearchUnitAsync")]
+        public async Task<IActionResult> SearchUnitAsync([FromBody] SearchUnitQuery command)
+        {
+            var result = await _mediator.Send(command);
+            return Ok(result);
+        }
 
     }
 }
