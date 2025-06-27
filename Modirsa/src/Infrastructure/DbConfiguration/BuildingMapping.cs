@@ -1,0 +1,24 @@
+﻿using Domain.BuildingAgg;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace Infrastructure.DbConfiguration
+{
+    public class BuildingMapping : IEntityTypeConfiguration<Building>
+    {
+        public void Configure(EntityTypeBuilder<Building> builder)
+        {
+            builder.ToTable("Buildings");
+            builder.HasKey(x => x.Id);
+
+            builder.Property(x=>x.Name).HasMaxLength(255).IsRequired();
+            builder.Property(x => x.Address).HasMaxLength(500).IsRequired();
+            builder.Property(x => x.BuildingUnitsNo).IsRequired();
+            builder.Property(x => x.Floors).IsRequired();
+            builder.Property(x => x.Image).HasMaxLength(500).IsRequired();
+            builder.Property(x => x.Image).HasMaxLength(500).IsRequired(false);
+
+            builder.HasMany(x => x.Units).WithOne(x => x.Building).HasForeignKey(x => x.BuildingId);
+        }
+    }
+}
