@@ -2,9 +2,8 @@
 
 namespace Application.Persistance.Contracts
 {
-    public interface IRoleRepository :IAsyncRepository<Role>
+    public interface IRoleRepository : IAsyncRepository<Role>
     {
-        //Task<EditRole> GetDetailsAsync(Guid id);
-        //Task<List<RoleViewModel>> ListAsync();
+        // Additional role-specific methods can be added here
     }
 }

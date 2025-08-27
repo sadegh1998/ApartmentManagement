@@ -1,22 +1,67 @@
-﻿<MudDialog>
-    <DialogContent>
-        <MudGrid Container Spacing="2">
-            <MudItem xs="12" sm="6">
-                <MudTextField T="string" @bind-Value="EditUnit.Name" Label="نام ساکن واحد" Variant="Variant.Outlined" Required="true" />
-            </MudItem>
-            <MudItem xs="12" sm="6">
-                <MudTextField T="string" @bind-Value="EditUnit.OwnerTenanStatus" Label="وضعیت مالکیت" Variant="Variant.Outlined" Required="true" />
-            </MudItem>
-            <MudItem xs="12" sm="6">
-                <MudNumericField T="int" @bind-Value="EditUnit.UnitNumber" Label="شماره واحد" Variant="Variant.Outlined" Required="true" Type="number" />
-            </MudItem>
-            <MudItem xs="12" sm="6">
-                <MudNumericField T="int" @bind-Value="EditUnit.NumberOfFamilyMembers" Label="تعداد اعضای خانوار" Variant="Variant.Outlined" Required="true" Type="number" />
-            </MudItem>
+﻿@using ModisaApp.Shared.DTO.Unit
+@using ModisaApp.Shared.DTO.Building
 
-        </MudGrid>
+<MudDialog>
+    <DialogContent>
+        <MudContainer Style="max-height: 400px; overflow-y: auto">
+            <MudForm @ref="form" @bind-IsValid="@success">
+                <MudGrid Spacing="3">
+                    <MudItem xs="12" sm="6">
+                        <MudTextField @bind-Value="editUnit.Name" 
+                                     Label="نام واحد" 
+                                     Required="true" 
+                                     RequiredError="نام واحد الزامی است"
+                                     Variant="Variant.Outlined" />
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudTextField @bind-Value="editUnit.UnitNumber" 
+                                     Label="شماره واحد" 
+                                     Required="true" 
+                                     RequiredError="شماره واحد الزامی است"
+                                     Variant="Variant.Outlined" />
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudSelect @bind-Value="editUnit.OwnerTenanStatus" 
+                                     Label="وضعیت مالک/مستأجر" 
+                                     Required="true" 
+                                     RequiredError="وضعیت الزامی است"
+                                     Variant="Variant.Outlined">
+                            <MudSelectItem Value="@("مالک")">مالک</MudSelectItem>
+                            <MudSelectItem Value="@("مستأجر")">مستأجر</MudSelectItem>
+                            <MudSelectItem Value="@("خالی")">خالی</MudSelectItem>
+                        </MudSelect>
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudNumericField @bind-Value="editUnit.NumberOfFamilyMembers" 
+                                       Label="تعداد اعضای خانواده" 
+                                       Min="0"
+                                       Variant="Variant.Outlined" />
+                    </MudItem>
+                    
+                    <MudItem xs="12">
+                        <MudSelect @bind-Value="selectedBuildingId" 
+                                 Label="ساختمان" 
+                                 Required="true" 
+                                 RequiredError="انتخاب ساختمان الزامی است"
+                                 Variant="Variant.Outlined">
+                            @if (buildings != null)
+                            {
+                                @foreach (var building in buildings)
+                                {
+                                    <MudSelectItem Value="@building.Id">@building.Name</MudSelectItem>
+                                }
+                            }
+                        </MudSelect>
+                    </MudItem>
+                </MudGrid>
+            </MudForm>
+        </MudContainer>
     </DialogContent>
     <DialogActions>
-        <BaseButton Color="Color.Primary" Variant="Variant.Filled" OnClick="EditUnitAsync">ویرایش واحد</BaseButton>
+        <MudButton OnClick="Cancel">انصراف</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit" Disabled="!success">ذخیره</MudButton>
     </DialogActions>
 </MudDialog>

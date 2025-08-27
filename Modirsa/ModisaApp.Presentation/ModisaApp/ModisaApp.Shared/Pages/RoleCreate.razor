@@ -1,0 +1,36 @@
+@page "/Role/Create"
+@using ModisaApp.Shared.DTO.Role
+@using ModisaApp.Shared.Interfaces.Providers
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="mt-4">
+    <MudPaper Class="pa-4">
+        <MudText Typo="Typo.h5" Class="mb-4">ایجاد نقش جدید</MudText>
+        
+        <MudForm @ref="form" @bind-IsValid="@success">
+            <MudGrid Spacing="3">
+                <MudItem xs="12">
+                    <MudTextField @bind-Value="role.Title" 
+                                 Label="عنوان نقش" 
+                                 Required="true" 
+                                 RequiredError="عنوان نقش الزامی است"
+                                 Variant="Variant.Outlined" />
+                </MudItem>
+                
+                <MudItem xs="12" Class="d-flex justify-end">
+                    <MudButton Variant="Variant.Filled" 
+                              Color="Color.Primary" 
+                              OnClick="CreateRole" 
+                              Disabled="!success">
+                        ایجاد نقش
+                    </MudButton>
+                    <MudButton Variant="Variant.Outlined" 
+                              Color="Color.Secondary" 
+                              OnClick="Cancel" 
+                              Class="ml-2">
+                        انصراف
+                    </MudButton>
+                </MudItem>
+            </MudGrid>
+        </MudForm>
+    </MudPaper>
+</MudContainer>

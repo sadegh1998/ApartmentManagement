@@ -21,6 +21,13 @@ namespace Infrastructure.Persistance
             return entity;
         }
 
+        public async Task<T> CreateAsync(T entity)
+        {
+            await _dbContext.Set<T>().AddAsync(entity);
+            await SaveChangesAsync();
+            return entity;
+        }
+
         public async Task DeleteAsync(T entity)
         {
             _dbContext.Set<T>().Remove(entity);
@@ -51,8 +58,6 @@ namespace Infrastructure.Persistance
                 return await orderBy(query).ToListAsync();
 
             return await query.ToListAsync();
-
-
         }
 
         public async Task<IReadOnlyList<T>> GetAsync(Expression<Func<T, bool>> predicate = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, List<Expression<Func<T, object>>> includes = null, bool disableTracking = true)

@@ -1,28 +1,57 @@
 ﻿@using ModisaApp.Shared.DTO.Building
+@using ModisaApp.Shared.Interfaces.Providers
+
 <MudDialog>
     <DialogContent>
-        <MudGrid Container Spacing="2">
-            <MudItem xs="12" sm="6">
-                <MudTextField T="string" @bind-Value="EditBuilding.Name" Label="نام ساختمان" Variant="Variant.Outlined" Required="true" />
-            </MudItem>
-            <MudItem xs="12" sm="6">
-                <MudTextField T="string" @bind-Value="EditBuilding.Address" Label="آدرس" Variant="Variant.Outlined" Required="true" />
-            </MudItem>
-            <MudItem xs="12" sm="6">
-                <MudTextField T="int" @bind-Value="EditBuilding.Floors" Label="تعداد طبقات" Variant="Variant.Outlined" Required="true" Type="number" />
-            </MudItem>
-            <MudItem xs="12" sm="6">
-                <MudTextField T="int" @bind-Value="EditBuilding.BuildingUnitsNo" Label="تعداد واحدها" Variant="Variant.Outlined" Required="true" Type="number" />
-            </MudItem>
-            <MudItem xs="12" sm="6">
-                <MudTextField T="decimal" @bind-Value="EditBuilding.FundBalance" Label="موجودی صندوق" Variant="Variant.Outlined" Required="true" Type="number" />
-            </MudItem>
-            <MudItem xs="12" sm="6">
-                <MudTextField T="string" @bind-Value="EditBuilding.Image" Label="لینک تصویر (اختیاری)" Variant="Variant.Outlined" />
-            </MudItem>
-        </MudGrid>
+        <MudContainer Style="max-height: 400px; overflow-y: auto">
+            <MudForm @ref="form" @bind-IsValid="@success">
+                <MudGrid Spacing="3">
+                    <MudItem xs="12" sm="6">
+                        <MudTextField @bind-Value="editBuilding.Name" 
+                                     Label="نام ساختمان" 
+                                     Required="true" 
+                                     RequiredError="نام ساختمان الزامی است"
+                                     Variant="Variant.Outlined" />
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudTextField @bind-Value="editBuilding.Address" 
+                                     Label="آدرس" 
+                                     Required="true" 
+                                     RequiredError="آدرس الزامی است"
+                                     Variant="Variant.Outlined" />
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudNumericField @bind-Value="editBuilding.Floors" 
+                                       Label="تعداد طبقات" 
+                                       Min="1"
+                                       Required="true" 
+                                       RequiredError="تعداد طبقات الزامی است"
+                                       Variant="Variant.Outlined" />
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudNumericField @bind-Value="editBuilding.BuildingUnitsNo" 
+                                       Label="تعداد واحدها" 
+                                       Min="1"
+                                       Required="true" 
+                                       RequiredError="تعداد واحدها الزامی است"
+                                       Variant="Variant.Outlined" />
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudNumericField @bind-Value="editBuilding.FundBalance" 
+                                       Label="موجودی صندوق" 
+                                       Min="0"
+                                       Variant="Variant.Outlined" />
+                    </MudItem>
+                </MudGrid>
+            </MudForm>
+        </MudContainer>
     </DialogContent>
     <DialogActions>
-        <BaseButton Color="Color.Primary" Variant="Variant.Filled" OnClick="EditdBuilding">ایجاد ساختمان</BaseButton>
+        <MudButton OnClick="Cancel">انصراف</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit" Disabled="!success">ذخیره</MudButton>
     </DialogActions>
 </MudDialog>

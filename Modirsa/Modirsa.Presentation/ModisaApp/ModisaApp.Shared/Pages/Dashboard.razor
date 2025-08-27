@@ -1,0 +1,84 @@
+@page "/dashboard"
+@using ModisaApp.Shared.Interfaces.Providers
+
+<MudContainer MaxWidth="MaxWidth.ExtraLarge" Class="mt-4">
+    <MudText Typo="Typo.h4" Class="mb-4">داشبورد مدیریت آپارتمان</MudText>
+    
+    <MudGrid Spacing="3">
+        <MudItem xs="12" sm="6" md="3">
+            <MudPaper Class="pa-4 text-center" Style="background: linear-gradient(45deg, #2196F3 30%, #21CBF3 90%);">
+                <MudIcon Icon="@Icons.Material.Filled.Apartment" Size="Size.Large" Color="Color.Inherit" />
+                <MudText Typo="Typo.h6" Color="Color.Inherit" Class="mt-2">ساختمان‌ها</MudText>
+                <MudText Typo="Typo.h4" Color="Color.Inherit">@buildingCount</MudText>
+            </MudPaper>
+        </MudItem>
+        
+        <MudItem xs="12" sm="6" md="3">
+            <MudPaper Class="pa-4 text-center" Style="background: linear-gradient(45deg, #4CAF50 30%, #66BB6A 90%);">
+                <MudIcon Icon="@Icons.Material.Filled.Home" Size="Size.Large" Color="Color.Inherit" />
+                <MudText Typo="Typo.h6" Color="Color.Inherit" Class="mt-2">واحدها</MudText>
+                <MudText Typo="Typo.h4" Color="Color.Inherit">@unitCount</MudText>
+            </MudPaper>
+        </MudItem>
+        
+        <MudItem xs="12" sm="6" md="3">
+            <MudPaper Class="pa-4 text-center" Style="background: linear-gradient(45deg, #FF9800 30%, #FFB74D 90%);">
+                <MudIcon Icon="@Icons.Material.Filled.Money" Size="Size.Large" Color="Color.Inherit" />
+                <MudText Typo="Typo.h6" Color="Color.Inherit" Class="mt-2">هزینه‌ها</MudText>
+                <MudText Typo="Typo.h4" Color="Color.Inherit">@expenseCount</MudText>
+            </MudPaper>
+        </MudItem>
+        
+        <MudItem xs="12" sm="6" md="3">
+            <MudPaper Class="pa-4 text-center" Style="background: linear-gradient(45deg, #9C27B0 30%, #BA68C8 90%);">
+                <MudIcon Icon="@Icons.Material.Filled.Assignment" Size="Size.Large" Color="Color.Inherit" />
+                <MudText Typo="Typo.h6" Color="Color.Inherit" Class="mt-2">تخصیص‌ها</MudText>
+                <MudText Typo="Typo.h4" Color="Color.Inherit">@expenseUnitCount</MudText>
+            </MudPaper>
+        </MudItem>
+        
+        <MudItem xs="12">
+            <MudPaper Class="pa-4">
+                <MudText Typo="Typo.h6" Class="mb-3">دسترسی سریع</MudText>
+                <MudGrid Spacing="2">
+                    <MudItem xs="12" sm="6" md="3">
+                        <MudButton Href="/Building/Create" 
+                                   Variant="Variant.Filled" 
+                                   Color="Color.Primary" 
+                                   FullWidth="true"
+                                   StartIcon="@Icons.Material.Filled.Add">
+                            افزودن ساختمان
+                        </MudButton>
+                    </MudItem>
+                    <MudItem xs="12" sm="6" md="3">
+                        <MudButton Href="/Unit/Create" 
+                                   Variant="Variant.Filled" 
+                                   Color="Color.Success" 
+                                   FullWidth="true"
+                                   StartIcon="@Icons.Material.Filled.Add">
+                            افزودن واحد
+                        </MudButton>
+                    </MudItem>
+                    <MudItem xs="12" sm="6" md="3">
+                        <MudButton Href="/Expense/Create" 
+                                   Variant="Variant.Filled" 
+                                   Color="Color.Warning" 
+                                   FullWidth="true"
+                                   StartIcon="@Icons.Material.Filled.Add">
+                            افزودن هزینه
+                        </MudButton>
+                    </MudItem>
+                    <MudItem xs="12" sm="6" md="3">
+                        <MudButton Href="/Building/List" 
+                                   Variant="Variant.Outlined" 
+                                   Color="Color.Primary" 
+                                   FullWidth="true"
+                                   StartIcon="@Icons.Material.Filled.List">
+                            مشاهده همه
+                        </MudButton>
+                    </MudItem>
+                </MudGrid>
+            </MudPaper>
+        </MudItem>
+    </MudGrid>
+</MudContainer>

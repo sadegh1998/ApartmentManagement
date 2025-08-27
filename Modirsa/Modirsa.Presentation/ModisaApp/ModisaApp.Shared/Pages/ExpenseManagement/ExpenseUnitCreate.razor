@@ -1,0 +1,71 @@
+@page "/ExpenseUnit/Create"
+@using ModisaApp.Shared.DTO.ExpenseUnit
+@using ModisaApp.Shared.DTO.Expense
+@using ModisaApp.Shared.DTO.Unit
+@using ModisaApp.Shared.Interfaces.Providers
+@using MudBlazor
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="mt-4">
+    <MudPaper Class="pa-4">
+        <MudText Typo="Typo.h5" Class="mb-4">ایجاد تخصیص هزینه جدید</MudText>
+        
+        <MudForm @ref="form" @bind-IsValid="@success">
+            <MudGrid Spacing="3">
+                <MudItem xs="12" sm="6">
+                    <MudSelect @bind-Value="selectedExpenseId" 
+                              Label="هزینه" 
+                              Required="true" 
+                              RequiredError="انتخاب هزینه الزامی است"
+                              Variant="Variant.Outlined">
+                        @if (expenses != null)
+                        {
+                            @foreach (var expense in expenses)
+                            {
+                                <MudSelectItem Value="@expense.Id">@expense.Description - @expense.Amount.ToString("N0") تومان</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+                </MudItem>
+                
+                <MudItem xs="12" sm="6">
+                    <MudSelect @bind-Value="selectedUnitId" 
+                              Label="واحد" 
+                              Required="true" 
+                              RequiredError="انتخاب واحد الزامی است"
+                              Variant="Variant.Outlined">
+                        @if (units != null)
+                        {
+                            @foreach (var unit in units)
+                            {
+                                <MudSelectItem Value="@unit.Id">@unit.Name - @unit.UnitNumber</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+                </MudItem>
+                
+                <MudItem xs="12" sm="6">
+                    <MudNumericField @bind-Value="expenseUnit.AmountDue" 
+                                    Label="مبلغ قابل پرداخت" 
+                                    Required="true" 
+                                    RequiredError="مبلغ الزامی است"
+                                    Variant="Variant.Outlined" />
+                </MudItem>
+                
+                <MudItem xs="12" Class="d-flex justify-end">
+                    <MudButton Variant="Variant.Filled" 
+                              Color="Color.Primary" 
+                              OnClick="CreateExpenseUnit" 
+                              Disabled="!success">
+                        ایجاد تخصیص هزینه
+                    </MudButton>
+                    <MudButton Variant="Variant.Outlined" 
+                              Color="Color.Secondary" 
+                              OnClick="Cancel" 
+                              Class="ml-2">
+                        انصراف
+                    </MudButton>
+                </MudItem>
+            </MudGrid>
+        </MudForm>
+    </MudPaper>
+</MudContainer>

@@ -1,0 +1,65 @@
+@using ModisaApp.Shared.DTO.Expense
+@using ModisaApp.Shared.DTO.Building
+
+<MudDialog>
+    <DialogContent>
+        <MudContainer Style="max-height: 400px; overflow-y: auto">
+            <MudForm @ref="form" @bind-IsValid="@success">
+                <MudGrid Spacing="3">
+                    <MudItem xs="12" sm="6">
+                        <MudTextField @bind-Value="editExpense.Description" 
+                                     Label="توضیحات هزینه" 
+                                     Required="true" 
+                                     RequiredError="توضیحات الزامی است"
+                                     Variant="Variant.Outlined" />
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudNumericField @bind-Value="editExpense.Amount" 
+                                       Label="مبلغ" 
+                                       Required="true" 
+                                       RequiredError="مبلغ الزامی است"
+                                       Variant="Variant.Outlined" />
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudDatePicker Date="editExpense.DateIncurred" 
+                                     DateChanged="@((date) => editExpense.DateIncurred = date ?? DateTime.Now)" 
+                                     Label="تاریخ هزینه" 
+                                     Required="true" 
+                                     RequiredError="تاریخ الزامی است"
+                                     Variant="Variant.Outlined" />
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudTextField @bind-Value="editExpense.AllocationMethod" 
+                                     Label="روش تخصیص" 
+                                     Required="true" 
+                                     RequiredError="روش تخصیص الزامی است"
+                                     Variant="Variant.Outlined" />
+                    </MudItem>
+                    
+                    <MudItem xs="12">
+                        <MudSelect @bind-Value="selectedBuildingId" 
+                                 Label="ساختمان" 
+                                 Required="true" 
+                                 RequiredError="انتخاب ساختمان الزامی است"
+                                 Variant="Variant.Outlined">
+                            @if (buildings != null)
+                            {
+                                @foreach (var building in buildings)
+                                {
+                                    <MudSelectItem Value="@building.Id">@building.Name</MudSelectItem>
+                                }
+                            }
+                        </MudSelect>
+                    </MudItem>
+                </MudGrid>
+            </MudForm>
+        </MudContainer>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">انصراف</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit" Disabled="!success">ذخیره</MudButton>
+    </DialogActions>
+</MudDialog>

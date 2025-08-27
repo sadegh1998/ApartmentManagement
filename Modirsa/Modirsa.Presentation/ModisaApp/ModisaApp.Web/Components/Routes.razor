@@ -1,0 +1,24 @@
+@using MudBlazor
+@using ModisaApp.Shared.Layout
+
+<Router AppAssembly="@typeof(ModisaApp.Shared.Pages.ExpenseManagement.ExpenseUnitList).Assembly">
+    <Found Context="routeData">
+        <RouteView RouteData="routeData" DefaultLayout="typeof(ModisaApp.Shared.Layout.MainLayout)" />
+        <FocusOnNavigate RouteData="routeData" Selector="h1" />
+    </Found>
+    <NotFound>
+        <PageTitle>Not found</PageTitle>
+        <LayoutView Layout="typeof(ModisaApp.Shared.Layout.MainLayout)">
+            <MudContainer MaxWidth="MaxWidth.Medium" Class="mt-16">
+                <MudPaper Class="pa-4 text-center">
+                    <MudIcon Icon="@Icons.Material.Filled.Error" Size="Size.Large" Color="Color.Error" />
+                    <MudText Typo="Typo.h4" Class="mt-3">صفحه مورد نظر یافت نشد</MudText>
+                    <MudText Typo="Typo.body1" Class="mt-2">متأسفانه صفحه‌ای که به دنبال آن هستید وجود ندارد.</MudText>
+                    <MudButton Href="/" Variant="Variant.Filled" Color="Color.Primary" Class="mt-4">
+                        بازگشت به صفحه اصلی
+                    </MudButton>
+                </MudPaper>
+            </MudContainer>
+        </LayoutView>
+    </NotFound>
+</Router>

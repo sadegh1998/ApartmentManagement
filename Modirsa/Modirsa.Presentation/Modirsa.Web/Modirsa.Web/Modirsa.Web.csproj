@@ -12,9 +12,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\AccountManagement\AM.Infrastructure\AccountManagement.Configuration\AccountManagement.Configuration.csproj" />
-    <ProjectReference Include="..\..\..\BuildingManagement.Configuration\BuildingManagement.Configuration.csproj" />
-    <ProjectReference Include="..\..\..\ExpenseManagement\EM.Infrastructure\ExpenseManagement.Configuration\ExpenseManagement.Configuration.csproj" />
+    <ProjectReference Include="..\..\..\src\Application\Application.csproj" />
+    <ProjectReference Include="..\..\..\src\Infrastructure\Infrastructure.csproj" />
+    <ProjectReference Include="..\..\..\0_Framework\0_Framework.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,10 +1,18 @@
-﻿using _0_Framework.Application;
-using _0_Framework.Infrstructure;
-using Microsoft.AspNetCore.Mvc.Filters;
+﻿using Microsoft.AspNetCore.Mvc.Filters;
 using System.Reflection;
 
 namespace Modirsa.Web
 {
+    [AttributeUsage(AttributeTargets.Method)]
+    public class NeedsPermissionAttribute : Attribute
+    {
+        public int Permission { get; set; }
+        public NeedsPermissionAttribute(int permission)
+        {
+            Permission = permission;
+        }
+    }
+
     public class SecurityPageFilter : IPageFilter
     {
         private readonly IAuthHelper _authHelper;
@@ -20,13 +28,13 @@ namespace Modirsa.Web
 
         public void OnPageHandlerExecuting(PageHandlerExecutingContext context)
         {
-            var handlerPermission = (NeedsPermissionAttribute) context.HandlerMethod.MethodInfo.GetCustomAttribute(typeof(NeedsPermissionAttribute));
+            var handlerPermission = (NeedsPermissionAttribute)context.HandlerMethod.MethodInfo.GetCustomAttribute(typeof(NeedsPermissionAttribute));
             if (handlerPermission == null)
             {
                 return;
             }
-            var aa = _authHelper.GetPermissions();
-            if (_authHelper.GetPermissions().All(x=>x != handlerPermission.Permission))
+            
+            if (_authHelper.GetPermissions().All(x => x != handlerPermission.Permission))
             {
                 context.HttpContext.Response.Redirect("/Account");
             }

@@ -1,9 +1,14 @@
-﻿using _0_Framework.Application;
-using Microsoft.AspNetCore.Razor.TagHelpers;
+﻿using Microsoft.AspNetCore.Razor.TagHelpers;
 
 namespace Modirsa.Web
 {
-    [HtmlTargetElement(Attributes ="Permission")]
+    public interface IAuthHelper
+    {
+        bool IsAuthenticated();
+        List<int> GetPermissions();
+    }
+
+    [HtmlTargetElement(Attributes = "Permission")]
     public class PermissionTagHelper : TagHelper
     {
         public int Permission { get; set; }
@@ -23,7 +28,7 @@ namespace Modirsa.Web
             }
 
             var permissions = _authHelper.GetPermissions();
-            if(permissions.All(x=>x != Permission))
+            if (permissions.All(x => x != Permission))
             {
                 output.SuppressOutput();
                 return;

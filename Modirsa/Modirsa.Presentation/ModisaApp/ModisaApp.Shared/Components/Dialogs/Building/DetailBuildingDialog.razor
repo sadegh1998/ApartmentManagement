@@ -1,28 +1,48 @@
 ﻿@using ModisaApp.Shared.DTO.Building
+
 <MudDialog>
     <DialogContent>
-        <MudForm ReadOnly="true">
-        <MudGrid Container Spacing="2">
-            <MudItem xs="12" sm="6">
-                <MudTextField T="string" @bind-Value="EditBuilding.Name" Label="نام ساختمان" Variant="Variant.Outlined" Required="true" />
-            </MudItem>
-            <MudItem xs="12" sm="6">
-                <MudTextField T="string" @bind-Value="EditBuilding.Address" Label="آدرس" Variant="Variant.Outlined" Required="true" />
-            </MudItem>
-            <MudItem xs="12" sm="6">
-                <MudTextField T="int" @bind-Value="EditBuilding.Floors" Label="تعداد طبقات" Variant="Variant.Outlined" Required="true" Type="number" />
-            </MudItem>
-            <MudItem xs="12" sm="6">
-                <MudTextField T="int" @bind-Value="EditBuilding.BuildingUnitsNo" Label="تعداد واحدها" Variant="Variant.Outlined" Required="true" Type="number" />
-            </MudItem>
-            <MudItem xs="12" sm="6">
-                <MudTextField T="decimal" @bind-Value="EditBuilding.FundBalance" Label="موجودی صندوق" Variant="Variant.Outlined" Required="true" Type="number" />
-            </MudItem>
-            <MudItem xs="12" sm="6">
-                <MudTextField T="string" @bind-Value="EditBuilding.Image" Label="لینک تصویر (اختیاری)" Variant="Variant.Outlined" />
-            </MudItem>
-        </MudGrid>
-        </MudForm>
+        <MudContainer Style="max-height: 400px; overflow-y: auto">
+            <MudGrid Spacing="3">
+                @if (EditBuilding != null)
+                {
+                    <MudItem xs="12" sm="6">
+                        <MudText Typo="Typo.h6" Color="Color.Primary">نام ساختمان:</MudText>
+                        <MudText Typo="Typo.body1">@EditBuilding.Name</MudText>
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudText Typo="Typo.h6" Color="Color.Primary">آدرس:</MudText>
+                        <MudText Typo="Typo.body1">@EditBuilding.Address</MudText>
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudText Typo="Typo.h6" Color="Color.Primary">تعداد طبقات:</MudText>
+                        <MudText Typo="Typo.body1">@EditBuilding.Floors</MudText>
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudText Typo="Typo.h6" Color="Color.Primary">تعداد واحدها:</MudText>
+                        <MudText Typo="Typo.body1">@EditBuilding.BuildingUnitsNo</MudText>
+                    </MudItem>
+                    
+                    <MudItem xs="12" sm="6">
+                        <MudText Typo="Typo.h6" Color="Color.Primary">موجودی صندوق:</MudText>
+                        <MudText Typo="Typo.body1">@EditBuilding.FundBalance.ToString("N0") تومان</MudText>
+                    </MudItem>
+                    
+                    @if (!string.IsNullOrEmpty(EditBuilding.Image))
+                    {
+                        <MudItem xs="12">
+                            <MudText Typo="Typo.h6" Color="Color.Primary">تصویر:</MudText>
+                            <MudImage Src="@EditBuilding.Image" Alt="تصویر ساختمان" ObjectFit="ObjectFit.Cover" Width="200" Height="150" />
+                        </MudItem>
+                    }
+                }
+            </MudGrid>
+        </MudContainer>
     </DialogContent>
-    
+    <DialogActions>
+        <MudButton OnClick="Cancel">بستن</MudButton>
+    </DialogActions>
 </MudDialog>

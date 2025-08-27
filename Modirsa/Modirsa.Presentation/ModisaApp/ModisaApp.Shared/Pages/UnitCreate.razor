@@ -1,0 +1,80 @@
+@page "/Unit/Create"
+@using ModisaApp.Shared.DTO.Unit
+@using ModisaApp.Shared.DTO.Building
+@using ModisaApp.Shared.Interfaces.Providers
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="mt-4">
+    <MudPaper Class="pa-4">
+        <MudText Typo="Typo.h5" Class="mb-4">ایجاد واحد جدید</MudText>
+        
+        <MudForm @ref="form" @bind-IsValid="@success">
+            <MudGrid Spacing="3">
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="unit.Name" 
+                                 Label="نام واحد" 
+                                 Required="true" 
+                                 RequiredError="نام واحد الزامی است"
+                                 Variant="Variant.Outlined" />
+                </MudItem>
+                
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="unit.UnitNumber" 
+                                 Label="شماره واحد" 
+                                 Required="true" 
+                                 RequiredError="شماره واحد الزامی است"
+                                 Variant="Variant.Outlined" />
+                </MudItem>
+                
+                <MudItem xs="12" sm="6">
+                    <MudSelect @bind-Value="unit.OwnerTenanStatus" 
+                               Label="وضعیت مالک/مستأجر" 
+                               Required="true" 
+                               RequiredError="وضعیت الزامی است"
+                               Variant="Variant.Outlined">
+                        <MudSelectItem Value="@("مالک")">مالک</MudSelectItem>
+                        <MudSelectItem Value="@("مستأجر")">مستأجر</MudSelectItem>
+                        <MudSelectItem Value="@("خالی")">خالی</MudSelectItem>
+                    </MudSelect>
+                </MudItem>
+                
+                <MudItem xs="12" sm="6">
+                    <MudNumericField @bind-Value="unit.NumberOfFamilyMembers" 
+                                    Label="تعداد اعضای خانواده" 
+                                    Min="0"
+                                    Variant="Variant.Outlined" />
+                </MudItem>
+                
+                <MudItem xs="12">
+                    <MudSelect @bind-Value="selectedBuildingId" 
+                               Label="ساختمان" 
+                               Required="true" 
+                               RequiredError="انتخاب ساختمان الزامی است"
+                               Variant="Variant.Outlined">
+                        @if (buildings != null)
+                        {
+                            @foreach (var building in buildings)
+                            {
+                                <MudSelectItem Value="@building.Id">@building.Name</MudSelectItem>
+                            }
+                        }
+                    </MudSelect>
+                </MudItem>
+                
+                <MudItem xs="12" Class="d-flex justify-end">
+                    <MudButton Variant="Variant.Filled" 
+                               Color="Color.Primary" 
+                               OnClick="CreateUnit" 
+                               Disabled="!success">
+                        ایجاد واحد
+                    </MudButton>
+                    <MudButton Variant="Variant.Outlined" 
+                               Color="Color.Secondary" 
+                               OnClick="Cancel" 
+                               Class="ml-2">
+                        انصراف
+                    </MudButton>
+                </MudItem>
+            </MudGrid>
+        </MudForm>
+    </MudPaper>
+</MudContainer>

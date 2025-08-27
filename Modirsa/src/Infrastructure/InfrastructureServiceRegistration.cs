@@ -13,8 +13,7 @@ namespace Infrastructure
         public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ModisaDbContext>(options =>
-            options.UseSqlServer(configuration.GetConnectionString("ModisaDb")));
-
+                options.UseSqlServer(configuration.GetConnectionString("ModisaDb")));
 
             services.AddScoped(typeof(IAsyncRepository<>), typeof(RepositoryBase<>));
             services.AddScoped<IPermissionRepository, PermissionRepository>();
@@ -25,6 +24,8 @@ namespace Infrastructure
             services.AddTransient<IBuildingRepository, BuildingRepository>();
             services.AddTransient<IUnitRepository, UnitRepository>();
             services.AddTransient<IExpenseRepository, ExpenseRepository>();
+            services.AddTransient<IExpenseUnitRepository, ExpenseUnitRepository>();
+            
             return services;
         }
     }

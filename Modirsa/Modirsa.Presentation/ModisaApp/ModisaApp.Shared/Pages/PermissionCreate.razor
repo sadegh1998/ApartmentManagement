@@ -1,0 +1,44 @@
+@page "/Permission/Create"
+@using ModisaApp.Shared.DTO.Permission
+@using ModisaApp.Shared.Interfaces.Providers
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="mt-4">
+    <MudPaper Class="pa-4">
+        <MudText Typo="Typo.h5" Class="mb-4">ایجاد مجوز جدید</MudText>
+        
+        <MudForm @ref="form" @bind-IsValid="@success">
+            <MudGrid Spacing="3">
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="permission.Name" 
+                                 Label="نام مجوز" 
+                                 Required="true" 
+                                 RequiredError="نام مجوز الزامی است"
+                                 Variant="Variant.Outlined" />
+                </MudItem>
+                
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="permission.Code" 
+                                 Label="کد مجوز" 
+                                 Required="true" 
+                                 RequiredError="کد مجوز الزامی است"
+                                 Variant="Variant.Outlined" />
+                </MudItem>
+                
+                <MudItem xs="12" Class="d-flex justify-end">
+                    <MudButton Variant="Variant.Filled" 
+                              Color="Color.Primary" 
+                              OnClick="CreatePermission" 
+                              Disabled="!success">
+                        ایجاد مجوز
+                    </MudButton>
+                    <MudButton Variant="Variant.Outlined" 
+                              Color="Color.Secondary" 
+                              OnClick="Cancel" 
+                              Class="ml-2">
+                        انصراف
+                    </MudButton>
+                </MudItem>
+            </MudGrid>
+        </MudForm>
+    </MudPaper>
+</MudContainer>

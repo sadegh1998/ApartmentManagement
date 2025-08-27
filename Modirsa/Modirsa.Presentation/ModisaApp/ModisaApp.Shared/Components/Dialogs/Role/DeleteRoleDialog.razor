@@ -1,0 +1,29 @@
+@using ModisaApp.Shared.DTO.Role
+
+<MudDialog>
+    <DialogContent>
+        <MudContainer Style="max-height: 400px; overflow-y: auto">
+            <MudGrid Spacing="3">
+                <MudItem xs="12">
+                    <MudText Typo="Typo.h6" Color="Color.Error">آیا از حذف این نقش اطمینان دارید؟</MudText>
+                </MudItem>
+                
+                <MudItem xs="12">
+                    <MudText Typo="Typo.body1">
+                        نقش: <strong>@RoleTitle</strong>
+                    </MudText>
+                </MudItem>
+                
+                <MudItem xs="12">
+                    <MudAlert Severity="Severity.Warning">
+                        این عملیات قابل بازگشت نیست!
+                    </MudAlert>
+                </MudItem>
+            </MudGrid>
+        </MudContainer>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">انصراف</MudButton>
+        <MudButton Color="Color.Error" OnClick="ConfirmDelete">حذف</MudButton>
+    </DialogActions>
+</MudDialog>

@@ -1,0 +1,27 @@
+@using ModisaApp.Shared.DTO.Role
+
+<MudDialog>
+    <DialogContent>
+        <MudContainer Style="max-height: 400px; overflow-y: auto">
+            <MudGrid Spacing="3">
+                <MudItem xs="12" sm="6">
+                    <MudText Typo="Typo.h6" Color="Color.Primary">عنوان نقش:</MudText>
+                    <MudText Typo="Typo.body1">@Role.Title</MudText>
+                </MudItem>
+                
+                <MudItem xs="12" sm="6">
+                    <MudText Typo="Typo.h6" Color="Color.Primary">تعداد کاربران:</MudText>
+                    <MudText Typo="Typo.body1">@Role.UsersCount</MudText>
+                </MudItem>
+                
+                <MudItem xs="12" sm="6">
+                    <MudText Typo="Typo.h6" Color="Color.Primary">تعداد مجوزها:</MudText>
+                    <MudText Typo="Typo.body1">@Role.PermissionsCount</MudText>
+                </MudItem>
+            </MudGrid>
+        </MudContainer>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">بستن</MudButton>
+    </DialogActions>
+</MudDialog>

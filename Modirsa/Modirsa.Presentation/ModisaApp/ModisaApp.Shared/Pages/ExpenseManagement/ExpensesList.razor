@@ -1,3 +1,46 @@
-﻿<h3>ExpensesList</h3>
+﻿@page "/Expense/List"
+@using ModisaApp.Shared.DTO.Expense
+@using ModisaApp.Shared.Interfaces.Providers
+@using ModisaApp.Shared.Components
+
+@if (!IsLoading)
+{
+    <Loading/>
+}
+
+<MudButton OnClick="OpenAddDialog" Variant="Variant.Filled" Color="Color.Primary" Class="mt-3">
+    <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-2" /> افزودن هزینه جدید
+</MudButton>
+
+@if (!Expenses.Any())
+{
+    <MudPaper Class="d-flex flex-column align-center justify-center p-6" Style="height: 300px;">
+        <MudIcon Icon="@Icons.Material.Filled.Warning" Size="Size.Large" Color="Color.Warning" />
+        <MudText Class="mt-3" Typo="Typo.h6">هیچ هزینه‌ای برای نمایش وجود ندارد</MudText>
+    </MudPaper>
+}
+else
+{
+    <MudGrid Spacing="1">
+        <MudItem xs="12">
+            <MudDataGrid Items="@Expenses" SortMode="SortMode.Multiple" Filterable="true" Breakpoint="Breakpoint.Sm" Dense="true">
+                <Columns>
+                    <PropertyColumn Property="x => x.Description" Title="توضیحات" />
+                    <PropertyColumn Property="x => x.Amount" Title="مبلغ" />
+                    <PropertyColumn Property="x => x.DateIncurred" Title="تاریخ هزینه" />
+                    <PropertyColumn Property="x => x.AllocationMethod" Title="روش تخصیص" />
+                    <PropertyColumn Property="x => x.BuildingName" Title="نام ساختمان" />
+                    <PropertyColumn Property="x => x.ExpenseUnitsCount" Title="تعداد واحدها" />
+                    <TemplateColumn CellClass="d-flex justify-end" Title="عملیات">
+                        <CellTemplate>
+                            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" Size="Size.Small" Variant="Variant.Filled" OnClick="()=>OpenEditDialog(context.Item.Id)" />
+                            <MudIconButton Icon="@Icons.Material.Filled.RemoveRedEye" Size="Size.Small" Variant="Variant.Filled" Color="Color.Warning" OnClick="()=>OpenDetailDialog(context.Item.Id)" />
+                        </CellTemplate>
+                    </TemplateColumn>
+                </Columns>
+            </MudDataGrid>
+        </MudItem>
+    </MudGrid>
+}
 
 

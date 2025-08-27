@@ -1,7 +1,12 @@
-﻿using _0_Framework.Application;
+﻿using Microsoft.AspNetCore.Http;
 
- namespace Modirsa.Web
+namespace Modirsa.Web
 {
+    public interface IFileUploader
+    {
+        string Upload(IFormFile file, string path);
+    }
+
     public class FileUploader : IFileUploader
     {
         private readonly IWebHostEnvironment _hostEnvironment;
@@ -11,21 +16,22 @@
             _hostEnvironment = hostEnvironment;
         }
 
-       
-
         public string Upload(IFormFile file, string path)
         {
             if (file == null) return "";
 
-            var directoryPath = $"{_hostEnvironment.WebRootPath}//ProductPictures//{path}";
+            var directoryPath = $"{_hostEnvironment.WebRootPath}/ProductPictures/{path}";
             if (!Directory.Exists(directoryPath))
             {
                 Directory.CreateDirectory(directoryPath);
             }
-            var fileName = $"{DateTime.Now.ToFileName()}-{file.FileName}";
-            var filePath = $"{directoryPath}//{fileName}";
-            using var output =  File.Create(filePath);
+            
+            var fileName = $"{DateTime.Now:yyyyMMddHHmmss}-{file.FileName}";
+            var filePath = $"{directoryPath}/{fileName}";
+            
+            using var output = File.Create(filePath);
             file.CopyTo(output);
+            
             return $"{path}/{fileName}";
         }
     }

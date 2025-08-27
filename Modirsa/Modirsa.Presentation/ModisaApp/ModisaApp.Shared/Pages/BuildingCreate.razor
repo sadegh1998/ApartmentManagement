@@ -1,0 +1,69 @@
+@page "/Building/Create"
+@using ModisaApp.Shared.DTO.Building
+@using ModisaApp.Shared.Interfaces.Providers
+
+<MudContainer MaxWidth="MaxWidth.Medium" Class="mt-4">
+    <MudPaper Class="pa-4">
+        <MudText Typo="Typo.h5" Class="mb-4">ایجاد ساختمان جدید</MudText>
+        
+        <MudForm @ref="form" @bind-IsValid="@success">
+            <MudGrid Spacing="3">
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="building.Name" 
+                                 Label="نام ساختمان" 
+                                 Required="true" 
+                                 RequiredError="نام ساختمان الزامی است"
+                                 Variant="Variant.Outlined" />
+                </MudItem>
+                
+                <MudItem xs="12" sm="6">
+                    <MudTextField @bind-Value="building.Address" 
+                                 Label="آدرس" 
+                                 Required="true" 
+                                 RequiredError="آدرس الزامی است"
+                                 Variant="Variant.Outlined" />
+                </MudItem>
+                
+                <MudItem xs="12" sm="6">
+                    <MudNumericField @bind-Value="building.Floors" 
+                                    Label="تعداد طبقات" 
+                                    Min="1"
+                                    Required="true" 
+                                    RequiredError="تعداد طبقات الزامی است"
+                                    Variant="Variant.Outlined" />
+                </MudItem>
+                
+                <MudItem xs="12" sm="6">
+                    <MudNumericField @bind-Value="building.BuildingUnitsNo" 
+                                    Label="تعداد واحدها" 
+                                    Min="1"
+                                    Required="true" 
+                                    RequiredError="تعداد واحدها الزامی است"
+                                    Variant="Variant.Outlined" />
+                </MudItem>
+                
+                <MudItem xs="12" sm="6">
+                    <MudNumericField @bind-Value="building.FundBalance" 
+                                    Label="موجودی صندوق" 
+                                    Min="0"
+                                    Variant="Variant.Outlined" />
+                </MudItem>
+                
+                <MudItem xs="12" Class="d-flex justify-end">
+                    <MudButton Variant="Variant.Filled" 
+                               Color="Color.Primary" 
+                               OnClick="CreateBuilding" 
+                               Disabled="!success">
+                        ایجاد ساختمان
+                    </MudButton>
+                    <MudButton Variant="Variant.Outlined" 
+                               Color="Color.Secondary" 
+                               OnClick="Cancel" 
+                               Class="ml-2">
+                        انصراف
+                    </MudButton>
+                </MudItem>
+            </MudGrid>
+        </MudForm>
+    </MudPaper>
+</MudContainer>

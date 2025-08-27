@@ -42,30 +42,19 @@ namespace ModisaApp.Shared.Pages
         }
         async Task OpenEditDialog(Guid Id)
         {
-            var building = await _httpServiceProvider.Get<EditBuilding>($"{APIController}/GetBuildingAsyncBy?Id={Id}");
-            var parameters = new DialogParameters<EditBuildingDialog> 
-            {
-                {x=>x.EditBuilding , building }
-            };
-            var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true };
-            var dialog = await _DialogService.ShowAsync<EditBuildingDialog>("افزودن ساختمان جدید", parameters, options);
+            var parameters = new DialogParameters { { "BuildingId", Id } };
+            var dialog = await _DialogService.ShowAsync<EditBuildingDialog>("ویرایش ساختمان", parameters);
             var result = await dialog.Result;
-            if (!result.Canceled && result.Data is EditBuilding update)
+            if (!result.Canceled)
             {
-                await _httpServiceProvider.Put<EditBuilding, bool>($"{APIController}/EditBuilding", update);
                 await LoadBuildings();
             }
         }
         async Task OpenDetailDialog(Guid Id)
         {
-            var building = await _httpServiceProvider.Get<EditBuilding>($"{APIController}/GetBuildingAsyncBy?Id={Id}");
-            var parameters = new DialogParameters<DetailBuildingDialog>
-            {
-                {x=>x.EditBuilding , building }
-            };
-            var options = new DialogOptions { CloseButton = true, MaxWidth = MaxWidth.Small, FullWidth = true };
-            var dialog = await _DialogService.ShowAsync<DetailBuildingDialog>("افزودن ساختمان جدید", parameters, options);
-            
+            var parameters = new DialogParameters { { "BuildingId", Id } };
+            var dialog = await _DialogService.ShowAsync<DetailBuildingDialog>("جزئیات ساختمان", parameters);
+            await dialog.Result;
         }
         async Task AddBuilding(CreateBuilding newBuilding)
         {

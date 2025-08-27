@@ -1,0 +1,42 @@
+@page "/ExpenseUnit/List"
+@using ModisaApp.Shared.DTO.ExpenseUnit
+@using ModisaApp.Shared.Interfaces.Providers
+@using ModisaApp.Shared.Components
+
+@if (!IsLoading)
+{
+    <Loading/>
+}
+
+<MudButton OnClick="OpenAddDialog" Variant="Variant.Filled" Color="Color.Primary" Class="mt-3">
+    <MudIcon Icon="@Icons.Material.Filled.Add" Class="mr-2" /> افزودن تخصیص هزینه جدید
+</MudButton>
+
+@if (!ExpenseUnits.Any())
+{
+    <MudPaper Class="d-flex flex-column align-center justify-center p-6" Style="height: 300px;">
+        <MudIcon Icon="@Icons.Material.Filled.Warning" Size="Size.Large" Color="Color.Warning" />
+        <MudText Class="mt-3" Typo="Typo.h6">هیچ تخصیص هزینه‌ای برای نمایش وجود ندارد</MudText>
+    </MudPaper>
+}
+else
+{
+    <MudGrid Spacing="1">
+        <MudItem xs="12">
+            <MudDataGrid Items="@ExpenseUnits" SortMode="SortMode.Multiple" Filterable="true" Breakpoint="Breakpoint.Sm" Dense="true">
+                <Columns>
+                    <PropertyColumn Property="x => x.AmountDue" Title="مبلغ قابل پرداخت" />
+                    <PropertyColumn Property="x => x.ExpenseDescription" Title="توضیحات هزینه" />
+                    <PropertyColumn Property="x => x.UnitName" Title="نام واحد" />
+                    <PropertyColumn Property="x => x.CreationDate" Title="تاریخ ایجاد" />
+                    <TemplateColumn CellClass="d-flex justify-end" Title="عملیات">
+                        <CellTemplate>
+                            <MudIconButton Icon="@Icons.Material.Filled.Edit" Color="Color.Primary" Size="Size.Small" Variant="Variant.Filled" OnClick="()=>OpenEditDialog(context.Item.Id)" />
+                            <MudIconButton Icon="@Icons.Material.Filled.RemoveRedEye" Size="Size.Small" Variant="Variant.Filled" Color="Color.Warning" OnClick="()=>OpenDetailDialog(context.Item.Id)" />
+                        </CellTemplate>
+                    </TemplateColumn>
+                </Columns>
+            </MudDataGrid>
+        </MudItem>
+    </MudGrid>
+}

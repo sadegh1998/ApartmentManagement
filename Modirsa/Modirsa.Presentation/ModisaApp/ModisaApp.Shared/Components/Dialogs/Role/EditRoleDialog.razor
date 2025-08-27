@@ -1,0 +1,23 @@
+@using ModisaApp.Shared.DTO.Role
+
+<MudDialog>
+    <DialogContent>
+        <MudContainer Style="max-height: 400px; overflow-y: auto">
+            <MudForm @ref="form" @bind-IsValid="@success">
+                <MudGrid Spacing="3">
+                    <MudItem xs="12">
+                        <MudTextField @bind-Value="editRole.Title" 
+                                     Label="عنوان نقش" 
+                                     Required="true" 
+                                     RequiredError="عنوان نقش الزامی است"
+                                     Variant="Variant.Outlined" />
+                    </MudItem>
+                </MudGrid>
+            </MudForm>
+        </MudContainer>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Cancel">انصراف</MudButton>
+        <MudButton Color="Color.Primary" OnClick="Submit" Disabled="!success">ذخیره</MudButton>
+    </DialogActions>
+</MudDialog>
