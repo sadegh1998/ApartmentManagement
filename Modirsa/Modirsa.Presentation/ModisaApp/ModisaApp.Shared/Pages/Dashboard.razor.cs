@@ -25,7 +25,7 @@ namespace ModisaApp.Shared.Pages
                 var buildings = await _httpServiceProvider.Get<IEnumerable<object>?>("Building/GetAllBuilding");
                 buildingCount = buildings?.Count() ?? 0;
 
-                var units = await _httpServiceProvider.Get<IEnumerable<object>?>("Unit/GetAllUnits");
+                var units = await _httpServiceProvider.Get<IEnumerable<object>?>("Unit/GetAllUnitsAsync");
                 unitCount = units?.Count() ?? 0;
 
                 var expenses = await _httpServiceProvider.Get<IEnumerable<object>?>("Expense/GetAllExpenses");
@@ -45,3 +45,5 @@ namespace ModisaApp.Shared.Pages
         }
     }
 }
+
+

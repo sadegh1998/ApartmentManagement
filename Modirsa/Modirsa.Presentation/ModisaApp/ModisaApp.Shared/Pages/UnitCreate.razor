@@ -26,14 +26,14 @@
                 </MudItem>
                 
                 <MudItem xs="12" sm="6">
-                    <MudSelect @bind-Value="unit.OwnerTenanStatus" 
+                    <MudSelect T="string" @bind-Value="unit.OwnerTenanStatus" 
                                Label="وضعیت مالک/مستأجر" 
                                Required="true" 
                                RequiredError="وضعیت الزامی است"
                                Variant="Variant.Outlined">
-                        <MudSelectItem Value="@("مالک")">مالک</MudSelectItem>
-                        <MudSelectItem Value="@("مستأجر")">مستأجر</MudSelectItem>
-                        <MudSelectItem Value="@("خالی")">خالی</MudSelectItem>
+                        <MudSelectItem T="string" Value="@("مالک")">مالک</MudSelectItem>
+                        <MudSelectItem T="string" Value="@("مستأجر")">مستأجر</MudSelectItem>
+                        <MudSelectItem T="string" Value="@("خالی")">خالی</MudSelectItem>
                     </MudSelect>
                 </MudItem>
                 
@@ -45,7 +45,7 @@
                 </MudItem>
                 
                 <MudItem xs="12">
-                    <MudSelect @bind-Value="selectedBuildingId" 
+                    <MudSelect T="Guid?" @bind-Value="selectedBuildingId" 
                                Label="ساختمان" 
                                Required="true" 
                                RequiredError="انتخاب ساختمان الزامی است"
@@ -54,7 +54,7 @@
                         {
                             @foreach (var building in buildings)
                             {
-                                <MudSelectItem Value="@building.Id">@building.Name</MudSelectItem>
+                                <MudSelectItem T="Guid?" Value="@building.Id">@building.Name</MudSelectItem>
                             }
                         }
                     </MudSelect>

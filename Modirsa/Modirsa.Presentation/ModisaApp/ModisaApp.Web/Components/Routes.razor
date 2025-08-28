@@ -1,24 +1,53 @@
 @using MudBlazor
 @using ModisaApp.Shared.Layout
 
-<Router AppAssembly="@typeof(ModisaApp.Shared.Pages.ExpenseManagement.ExpenseUnitList).Assembly">
-    <Found Context="routeData">
-        <RouteView RouteData="routeData" DefaultLayout="typeof(ModisaApp.Shared.Layout.MainLayout)" />
-        <FocusOnNavigate RouteData="routeData" Selector="h1" />
-    </Found>
-    <NotFound>
-        <PageTitle>Not found</PageTitle>
+<ErrorBoundary @ref="errorBoundary">
+    <ChildContent>
+        <Router AppAssembly="@typeof(ModisaApp.Web.Components.App).Assembly">
+            <Found Context="routeData">
+                <RouteView RouteData="routeData" DefaultLayout="typeof(ModisaApp.Shared.Layout.MainLayout)" />
+                <FocusOnNavigate RouteData="routeData" Selector="h1" />
+            </Found>
+            <NotFound>
+                <PageTitle>صفحه یافت نشد</PageTitle>
+                <LayoutView Layout="typeof(ModisaApp.Shared.Layout.MainLayout)">
+                    <MudContainer MaxWidth="MaxWidth.Medium" Class="mt-16">
+                        <MudPaper Class="pa-4 text-center">
+                            <MudIcon Icon="@Icons.Material.Filled.Error" Size="Size.Large" Color="Color.Error" />
+                            <MudText Typo="Typo.h4" Class="mt-3">صفحه مورد نظر یافت نشد</MudText>
+                            <MudText Typo="Typo.body1" Class="mt-2">متأسفانه صفحه‌ای که به دنبال آن هستید وجود ندارد.</MudText>
+                            <MudButton Href="/" Variant="Variant.Filled" Color="Color.Primary" Class="mt-4">
+                                بازگشت به صفحه اصلی
+                            </MudButton>
+                        </MudPaper>
+                    </MudContainer>
+                </LayoutView>
+            </NotFound>
+        </Router>
+    </ChildContent>
+    <ErrorContent Context="exception">
+        <PageTitle>خطا</PageTitle>
         <LayoutView Layout="typeof(ModisaApp.Shared.Layout.MainLayout)">
             <MudContainer MaxWidth="MaxWidth.Medium" Class="mt-16">
                 <MudPaper Class="pa-4 text-center">
                     <MudIcon Icon="@Icons.Material.Filled.Error" Size="Size.Large" Color="Color.Error" />
-                    <MudText Typo="Typo.h4" Class="mt-3">صفحه مورد نظر یافت نشد</MudText>
-                    <MudText Typo="Typo.body1" Class="mt-2">متأسفانه صفحه‌ای که به دنبال آن هستید وجود ندارد.</MudText>
-                    <MudButton Href="/" Variant="Variant.Filled" Color="Color.Primary" Class="mt-4">
-                        بازگشت به صفحه اصلی
+                    <MudText Typo="Typo.h4" Class="mt-3">خطا در اجرای برنامه</MudText>
+                    <MudText Typo="Typo.body1" Class="mt-2">متأسفانه خطایی رخ داده است.</MudText>
+                    <MudText Typo="Typo.body2" Class="mt-2 text-muted">@exception.Message</MudText>
+                    <MudButton OnClick="Recover" Variant="Variant.Filled" Color="Color.Primary" Class="mt-4">
+                        تلاش مجدد
                     </MudButton>
                 </MudPaper>
             </MudContainer>
         </LayoutView>
-    </NotFound>
-</Router>
+    </ErrorContent>
+</ErrorBoundary>
+
+@code {
+    private ErrorBoundary errorBoundary = new();
+
+    private void Recover()
+    {
+        errorBoundary?.Recover();
+    }
+}

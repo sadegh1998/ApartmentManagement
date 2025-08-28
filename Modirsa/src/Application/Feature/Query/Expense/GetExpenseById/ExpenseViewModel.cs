@@ -15,3 +15,5 @@ namespace Application.Feature.Query.Expense.GetExpenseById
         public List<ExpenseUnitViewModel> ExpenseUnits { get; set; } = new();
     }
 }
+
+

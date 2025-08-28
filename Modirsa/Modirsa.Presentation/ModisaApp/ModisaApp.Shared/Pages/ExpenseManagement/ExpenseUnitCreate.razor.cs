@@ -36,12 +36,28 @@ namespace ModisaApp.Shared.Pages.ExpenseManagement
 
         async Task LoadExpenses()
         {
-            expenses = (await _httpServiceProvider.Get<IEnumerable<ExpenseViewModel>?>("Expense/GetAllExpenses"))?.ToList() ?? new();
+            try
+            {
+                expenses = (await _httpServiceProvider.Get<IEnumerable<ExpenseViewModel>?>("Expense/GetAllExpenses"))?.ToList() ?? new();
+            }
+            catch (Exception ex)
+            {
+                // Log error
+                expenses = new();
+            }
         }
 
         async Task LoadUnits()
         {
-            units = (await _httpServiceProvider.Get<IEnumerable<UnitViewModel>?>("Unit/GetAllUnits"))?.ToList() ?? new();
+            try
+            {
+                units = (await _httpServiceProvider.Get<IEnumerable<UnitViewModel>?>("Unit/GetAllUnitsAsync"))?.ToList() ?? new();
+            }
+            catch (Exception ex)
+            {
+                // Log error
+                units = new();
+            }
         }
 
         async Task CreateExpenseUnit()

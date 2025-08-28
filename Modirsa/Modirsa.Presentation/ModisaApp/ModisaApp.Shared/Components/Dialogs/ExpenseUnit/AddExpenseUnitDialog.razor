@@ -12,35 +12,35 @@
             <MudForm @ref="form" @bind-IsValid="@success">
                 <MudGrid Spacing="3">
                     <MudItem xs="12" sm="6">
-                        <MudSelect @bind-Value="selectedExpenseId" 
-                                  Label="هزینه" 
-                                  Required="true" 
-                                  RequiredError="انتخاب هزینه الزامی است"
-                                  Variant="Variant.Outlined">
-                            @if (expenses != null)
+                                            <MudSelect T="Guid?" @bind-Value="selectedExpenseId" 
+                               Label="هزینه" 
+                               Required="true" 
+                               RequiredError="انتخاب هزینه الزامی است"
+                               Variant="Variant.Outlined">
+                        @if (expenses != null)
+                        {
+                            @foreach (var expense in expenses)
                             {
-                                @foreach (var expense in expenses)
-                                {
-                                    <MudSelectItem Value="@expense.Id">@expense.Description - @expense.Amount.ToString("N0") تومان</MudSelectItem>
-                                }
+                                <MudSelectItem T="Guid?" Value="@expense.Id">@expense.Description - @expense.Amount.ToString("N0") تومان</MudSelectItem>
                             }
-                        </MudSelect>
+                        }
+                    </MudSelect>
                     </MudItem>
                     
                     <MudItem xs="12" sm="6">
-                        <MudSelect @bind-Value="selectedUnitId" 
-                                  Label="واحد" 
-                                  Required="true" 
-                                  RequiredError="انتخاب واحد الزامی است"
-                                  Variant="Variant.Outlined">
-                            @if (units != null)
+                                            <MudSelect T="Guid?" @bind-Value="selectedUnitId" 
+                               Label="هزینه" 
+                               Required="true" 
+                               RequiredError="انتخاب واحد الزامی است"
+                               Variant="Variant.Outlined">
+                        @if (units != null)
+                        {
+                            @foreach (var unit in units)
                             {
-                                @foreach (var unit in units)
-                                {
-                                    <MudSelectItem Value="@unit.Id">@unit.Name - @unit.UnitNumber</MudSelectItem>
-                                }
+                                <MudSelectItem T="Guid?" Value="@unit.Id">@unit.Name - @unit.UnitNumber</MudSelectItem>
                             }
-                        </MudSelect>
+                        }
+                    </MudSelect>
                     </MudItem>
                     
                     <MudItem xs="12" sm="6">
@@ -59,3 +59,5 @@
         <MudButton Color="Color.Primary" OnClick="Submit" Disabled="!success">ایجاد</MudButton>
     </DialogActions>
 </MudDialog>
+
+

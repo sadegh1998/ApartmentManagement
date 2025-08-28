@@ -38,7 +38,7 @@ namespace ModisaApp.Shared.Components.Dialogs.ExpenseUnit
 
         async Task LoadUnits()
         {
-            units = (await _httpServiceProvider.Get<IEnumerable<UnitViewModel>?>("Unit/GetAllUnits"))?.ToList() ?? new();
+                            units = (await _httpServiceProvider.Get<IEnumerable<UnitViewModel>?>("Unit/GetAllUnitsAsync"))?.ToList() ?? new();
         }
 
         async Task Submit()
@@ -59,3 +59,5 @@ namespace ModisaApp.Shared.Components.Dialogs.ExpenseUnit
         void Cancel() => MudDialog.Cancel();
     }
 }
+
+

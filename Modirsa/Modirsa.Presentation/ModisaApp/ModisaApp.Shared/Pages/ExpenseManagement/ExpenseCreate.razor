@@ -42,7 +42,7 @@
                 </MudItem>
                 
                 <MudItem xs="12">
-                    <MudSelect @bind-Value="selectedBuildingId" 
+                    <MudSelect T="Guid?" @bind-Value="selectedBuildingId" 
                                Label="ساختمان" 
                                Required="true" 
                                RequiredError="انتخاب ساختمان الزامی است"
@@ -51,7 +51,7 @@
                         {
                             @foreach (var building in buildings)
                             {
-                                <MudSelectItem Value="@building.Id">@building.Name</MudSelectItem>
+                                <MudSelectItem T="Guid?" Value="@building.Id">@building.Name</MudSelectItem>
                             }
                         }
                     </MudSelect>

@@ -12,7 +12,7 @@
         <MudForm @ref="form" @bind-IsValid="@success">
             <MudGrid Spacing="3">
                 <MudItem xs="12" sm="6">
-                    <MudSelect @bind-Value="selectedExpenseId" 
+                    <MudSelect T="Guid?" @bind-Value="selectedExpenseId" 
                               Label="هزینه" 
                               Required="true" 
                               RequiredError="انتخاب هزینه الزامی است"
@@ -21,14 +21,14 @@
                         {
                             @foreach (var expense in expenses)
                             {
-                                <MudSelectItem Value="@expense.Id">@expense.Description - @expense.Amount.ToString("N0") تومان</MudSelectItem>
+                                <MudSelectItem T="Guid?" Value="@expense.Id">@expense.Description - @expense.Amount.ToString("N0") تومان</MudSelectItem>
                             }
                         }
                     </MudSelect>
                 </MudItem>
                 
                 <MudItem xs="12" sm="6">
-                    <MudSelect @bind-Value="selectedUnitId" 
+                    <MudSelect T="Guid?" @bind-Value="selectedUnitId" 
                               Label="واحد" 
                               Required="true" 
                               RequiredError="انتخاب واحد الزامی است"
@@ -37,7 +37,7 @@
                         {
                             @foreach (var unit in units)
                             {
-                                <MudSelectItem Value="@unit.Id">@unit.Name - @unit.UnitNumber</MudSelectItem>
+                                <MudSelectItem T="Guid?" Value="@unit.Id">@unit.Name - @unit.UnitNumber</MudSelectItem>
                             }
                         }
                     </MudSelect>

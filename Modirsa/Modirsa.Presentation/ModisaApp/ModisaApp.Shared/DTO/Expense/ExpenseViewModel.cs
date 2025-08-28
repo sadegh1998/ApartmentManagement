@@ -11,3 +11,5 @@ namespace ModisaApp.Shared.DTO.Expense
         public int ExpenseUnitsCount { get; set; }
     }
 }
+
+

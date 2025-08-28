@@ -25,3 +25,5 @@ namespace Application.Feature.Query.Permission.GetAllPermissions
         }
     }
 }
+
+

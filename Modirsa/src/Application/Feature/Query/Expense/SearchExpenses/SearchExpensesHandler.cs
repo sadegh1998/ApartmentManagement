@@ -30,3 +30,5 @@ namespace Application.Feature.Query.Expense.SearchExpenses
         }
     }
 }
+
+

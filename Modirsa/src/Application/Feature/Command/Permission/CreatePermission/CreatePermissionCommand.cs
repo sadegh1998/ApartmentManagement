@@ -8,3 +8,5 @@ namespace Application.Feature.Command.Permission.CreatePermission
         public string Code { get; set; } = string.Empty;
     }
 }
+
+

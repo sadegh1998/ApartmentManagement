@@ -12,3 +12,4 @@ namespace Application.Feature.Query.Expense.SearchExpenses
         public decimal? MaxAmount { get; set; }
     }
 }
+

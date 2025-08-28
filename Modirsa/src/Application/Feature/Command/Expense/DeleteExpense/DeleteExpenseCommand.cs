@@ -8,3 +8,4 @@ namespace Application.Feature.Command.Expense.DeleteExpense
         public required Guid Id { get; set; }
     }
 }
+

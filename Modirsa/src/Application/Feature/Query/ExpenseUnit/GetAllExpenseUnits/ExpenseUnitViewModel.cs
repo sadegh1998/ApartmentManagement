@@ -11,3 +11,4 @@ namespace Application.Feature.Query.ExpenseUnit.GetAllExpenseUnits
         public DateTime CreationDate { get; set; }
     }
 }
+

@@ -12,3 +12,4 @@ namespace Application.Feature.Command.Expense.CreateExpense
         public required string AllocationMethod { get; set; }
     }
 }
+

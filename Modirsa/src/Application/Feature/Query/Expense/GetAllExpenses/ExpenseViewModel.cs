@@ -13,3 +13,5 @@ namespace Application.Feature.Query.Expense.GetAllExpenses
         public int ExpenseUnitsCount { get; set; }
     }
 }
+
+

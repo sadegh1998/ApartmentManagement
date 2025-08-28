@@ -13,3 +13,5 @@ namespace Application.Feature.Command.Expense.EditExpense
         public required string AllocationMethod { get; set; }
     }
 }
+
+

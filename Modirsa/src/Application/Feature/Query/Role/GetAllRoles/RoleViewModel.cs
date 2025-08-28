@@ -8,3 +8,5 @@ namespace Application.Feature.Query.Role.GetAllRoles
         public int PermissionsCount { get; set; }
     }
 }
+
+

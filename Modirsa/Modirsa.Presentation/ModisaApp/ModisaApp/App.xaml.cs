@@ -1,6 +1,8 @@
-﻿namespace ModisaApp
+﻿using Microsoft.Maui.Controls;
+
+namespace ModisaApp
 {
-    public partial class App : Application
+    public partial class App : Microsoft.Maui.Controls.Application
     {
         public App()
         {

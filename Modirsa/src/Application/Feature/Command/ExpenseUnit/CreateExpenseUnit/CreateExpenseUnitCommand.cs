@@ -10,3 +10,4 @@ namespace Application.Feature.Command.ExpenseUnit.CreateExpenseUnit
         public required Guid UnitId { get; set; }
     }
 }
+

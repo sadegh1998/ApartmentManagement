@@ -71,3 +71,5 @@ namespace ModisaApp.Shared.Components.Dialogs.Expense
         public Guid BuildingId { get; set; }
     }
 }
+
+

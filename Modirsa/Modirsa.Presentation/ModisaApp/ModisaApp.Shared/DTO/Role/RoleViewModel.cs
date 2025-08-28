@@ -8,3 +8,5 @@ namespace ModisaApp.Shared.DTO.Role
         public int PermissionsCount { get; set; }
     }
 }
+
+

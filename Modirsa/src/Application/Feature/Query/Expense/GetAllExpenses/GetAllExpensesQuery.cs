@@ -6,3 +6,4 @@ namespace Application.Feature.Query.Expense.GetAllExpenses
     {
     }
 }
+

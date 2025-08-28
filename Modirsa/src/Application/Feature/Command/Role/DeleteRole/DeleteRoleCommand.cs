@@ -7,3 +7,5 @@ namespace Application.Feature.Command.Role.DeleteRole
         public Guid Id { get; set; }
     }
 }
+
+
